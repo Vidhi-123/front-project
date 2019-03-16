@@ -96,6 +96,7 @@ faculty_name:string
         }
         if(this.flag==false)
         {
+          console.log(this.date2);
           this._ser1.addSchedule(new schedule(0,this.selectedsubject,this.selected_batch.batch_id,this.selectedstandard,this.selectedfaculty.faculty_id,this.timings,this.date2)).subscribe(
             (datas:any)=>
             {
@@ -160,6 +161,7 @@ faculty_name:string
     this._ser1.getAllScheduleBatchFacultystdsubject().subscribe(
       (data:any)=>{
         this.merge_arr=data;
+        console.log(data);
         console.log(this.merge_arr)
         this.date1=this.merge_arr[0].schedule_date;
         console.log(this.date1);

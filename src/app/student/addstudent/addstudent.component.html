@@ -55,8 +55,10 @@
   <mat-radio-button class="example-radio-button" *ngFor="let item of arr_batch" [value]="item">{{item.batch_name}}</mat-radio-button>
   </mat-radio-group>
   <br>
-  <mat-form-field>
-    <mat-select placeholder="maths" [(ngModel)]="maths" name="maths" #m1="ngModel" >
+
+  <mat-checkbox  *ngFor="let item of arr_subject" (change)="onCheckChange(item)" >{{item.subject_name}}</mat-checkbox>
+  <!-- <mat-form-field> -->
+    <!-- <mat-select placeholder="maths" [(ngModel)]="maths" name="maths" #m1="ngModel" >
       <mat-option value="yes">
       yes
       </mat-option>
@@ -124,7 +126,7 @@
     </mat-select>
     <mat-error *ngIf="bg.hasError('required')">its required</mat-error>
   </mat-form-field>
-  <br>
+  <br> -->
 
 
   <div class="row">

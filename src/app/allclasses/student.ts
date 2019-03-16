@@ -7,12 +7,6 @@ export class student{
    public joining_date:Date ,
    public fk_batch_id:number,
    public fk_standard_id:number,
-   public maths:string,
-   public science:string,
-   public english:string,
-   public physics:string,
-   public biology:string
-
   ){
 
   }

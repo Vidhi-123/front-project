@@ -9,9 +9,19 @@ export class StudentService {
   student:string="http://localhost:3000/student/";
   deletestudent:string="http://localhost:3000/deletestudent/"
   studentsubject:string="http://localhost:3000/studentsubject/"
+  add_subject:string="http://localhost:3000/subject/"
+  totalstudent:string="http://localhost:3000/totalstudent/";
   constructor(private _http:HttpClient) { }
   getStudent(){
     return this._http.get(this.student)
+  }
+  gettotalStudent(){
+    return this._http.get(this.totalstudent);
+  }
+  AddSubject(item){
+    let body=JSON.stringify(item);
+    let head1=new HttpHeaders().set('Content-Type','application/json')
+    return this._http.post(this.add_subject,body,{headers:head1});
   }
   getSubjectByStandard(standard_id:number)
   {
@@ -22,6 +32,7 @@ export class StudentService {
   }
 
   addStudent(item){
+    console.log(item);
     let body=JSON.stringify(item);
     let head1=new HttpHeaders().set('Content-Type','application/json')
     return this._http.post(this.student,body,{headers:head1});

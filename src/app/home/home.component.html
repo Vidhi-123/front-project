@@ -1,24 +1,38 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+  <mat-grid-list cols="3" rowHeight="300px">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
+              <!-- <h1><mat-icon style="height: 500px;">person</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;{{total}}</h1>
+              <h1>TOTAL STUDENTS</h1> -->
+
+
           </mat-card-title>
+
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div><router-outlet></router-outlet></div>
+          <div>
+
+              <h1><i class="material-icons">add</i></h1>
+              <h3>TOTAL STUDENTS</h3><h1>{{total}}</h1>
+
+
+</div>
+
+
         </mat-card-content>
       </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+      </mat-grid-tile>
+      </mat-grid-list>
+
+
+
+
+      <fusioncharts
+      width="700"
+      height="400"
+      type="Column2d"
+      [dataSource]="dataSource">
+  </fusioncharts>

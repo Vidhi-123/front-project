@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-  displayedColumns: string[] = ['select','student_name','student_password','date_of_birth','joining_date','batch_name','standard_no','maths','science','english','physics','biology','action'];
+  displayedColumns: string[] = ['select','student_name','student_password','date_of_birth','joining_date','batch_name','standard_no','action'];
     student_arr:student[]=[];
     delarr:student[]=[];
     i:number;

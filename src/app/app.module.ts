@@ -11,7 +11,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 //import { routing } from '../../app_routing';
 import { routing } from "./app_routing";
-import { MatInputModule,MatFormFieldControl,MatMenuModule, MatPaginatorModule,MatProgressSpinnerModule, MatSortModule, MatCardModule,MatSelectModule,MatOptionModule, MatIconModule, MatCheckboxModule, MatRadioModule, MatToolbarModule, MatSidenavModule, MatListModule, MatGridListModule, MatNativeDateModule } from '@angular/material';
+import { FusionChartsModule } from 'angular-fusioncharts';
+import * as FusionCharts from 'fusioncharts';
+// Load Charts module
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+// Load fusion theme
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+
+// Add dependencies to FusionChartsModule
+
+
+import { MatInputModule,MatFormFieldControl,MatMenuModule, MatPaginatorModule,MatProgressSpinnerModule, MatSortModule, MatCardModule,MatSelectModule,MatOptionModule, MatIconModule, MatCheckboxModule, MatRadioModule, MatToolbarModule, MatSidenavModule, MatListModule, MatGridListModule, MatNativeDateModule} from '@angular/material';
 import { UpdatebatchComponent } from './batch/updatebatch/updatebatch.component';
 import { AddbatchComponent } from './batch/addbatch/addbatch.component';
 import { DailyworkaddComponent } from './dailyworkadd/dailyworkadd.component';
@@ -49,6 +59,9 @@ import { AddexamresultComponent } from './examresult/addexamresult/addexamresult
 import { LoginComponent } from './login/login.component';
 import { ForgetpassComponent } from './forgetpass/forgetpass.component';
 
+
+
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme)
 @NgModule({
   declarations: [
     AppComponent,
@@ -108,6 +121,7 @@ import { ForgetpassComponent } from './forgetpass/forgetpass.component';
     MatCardModule,
     MatMenuModule,
     MatIconModule,
+    FusionChartsModule,
     MatSelectModule,
     MatOptionModule,
     routing,
@@ -120,6 +134,7 @@ import { ForgetpassComponent } from './forgetpass/forgetpass.component';
     MatGridListModule,
     MatDatepickerModule,
     MatNativeDateModule,
+
 
   ],
   providers: [],
