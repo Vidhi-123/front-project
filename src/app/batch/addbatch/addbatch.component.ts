@@ -39,7 +39,7 @@ export class AddbatchComponent implements OnInit {
     if(this.flag==true){
       alert('batch name already present');
       this.flag=false;
-      this._route.navigate(['/batch'])
+      this._route.navigate(['../menu/batch'])
 
     }
     else
@@ -57,7 +57,7 @@ export class AddbatchComponent implements OnInit {
       (data:any)=>{
         console.log(data);
         this.arr2.push(new add_batch(this.batch_name,this.selected.standard_id));
-        this._route.navigate(['/batch']);
+        this._route.navigate(['../menu/batch']);
 
       }
 

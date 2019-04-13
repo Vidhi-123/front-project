@@ -30,10 +30,10 @@ export class UpdatenoticeComponent implements OnInit {
         console.log(data);
       }
     );
-
+    this._route.navigate(['../menu/notice']);
   }
   onBack(){
-    this._route.navigate(['/notice']);
+    this._route.navigate(['../menu/notice']);
   }
   ngOnInit() {
     this.notice_id=this._actroute.snapshot.params['notice_id'];

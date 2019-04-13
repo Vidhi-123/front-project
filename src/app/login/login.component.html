@@ -1,9 +1,20 @@
-<b>ADMIN LOGIN</b>
-<br>
-<br>
-<br>
-<br>
-<mat-form-field hideRequiredMarker="true">
+
+<html>
+    <head>
+    <style>
+    body {
+      background-image: url("../../assets/images/hero-bg.jpg");
+      background-repeat: no-repeat;
+      /* margin-left: 10px; */
+      /* width:1682px; */
+
+
+    }
+    </style>
+    </head>
+
+
+<!-- <mat-form-field hideRequiredMarker="true" class="form-container">
   <input matInput type="email"  required name="admin_id1"  #admin_id1="ngModel" [(ngModel)]="faculty_id"    placeholder="Enter your email" >
   <mat-error *ngIf="admin_id1.hasError('required')">its required</mat-error>
    <mat-error *ngIf="!admin_id1.hasError('required')">email is invalid</mat-error>
@@ -13,11 +24,11 @@
 <br>
 <br>
 
-<mat-form-field >
+<mat-form-field>
   <input matInput type="text" name="password1"  #password1="ngModel" [(ngModel)]="password" required   placeholder="Enter your password" [type]="hide ? 'password' : 'text'" maxlength="10" hintLabel="Max 10 characters">
   <mat-error *ngIf="password1.hasError('required')">its required</mat-error>
-  <!-- <mat-error></mat-error> -->
-   <mat-hint align="end">{{password1.value?.length || 0}}/10</mat-hint>
+  <mat-error></mat-error> -->
+   <!-- <mat-hint align="end">{{password1.value?.length || 0}}/10</mat-hint>
   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
 </mat-form-field>
 
@@ -36,5 +47,59 @@
               <button class="btn btn-default btn-danger form-control" (click)="onforget()">FORGET</button>
             </div>
 </div>
+ -->
 
 
+
+<html>
+  <head></head>
+  <body>
+      <mat-card-content>
+          <mat-toolbar mat-card-avatar><img src="../../assets/ma1.png" style="border-radius: 50%; background-size: cover;
+            height: 60px;
+            width: 90px;">
+            <mat-card-title style="margin-left: 50px;">
+                <mat-toolbar style="width:190vh;" color="primary">MATHS ACADEMY</mat-toolbar></mat-card-title>
+          </mat-toolbar>
+        <!-- <span>MATHS ACADEMY</span> -->
+        </mat-card-content>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12">
+     <form class="form-container">
+       <h1 align="center">LOGIN</h1>
+    <div class="form-group" >
+      <label for="exampleInputEmail1">Email address</label><br>
+      <mat-form-field hideRequiredMarker="true"  >
+
+          <input matInput  type="email" class="example-full-width"  required name="admin_id1" #admin_id1="ngModel" [(ngModel)]="faculty_id"    placeholder="Enter your email" >
+          <mat-error *ngIf="admin_id1.hasError('required')">its required</mat-error>
+           <mat-error *ngIf="!admin_id1.hasError('required')">email is invalid</mat-error>
+</mat-form-field>
+
+
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label><br>
+      <mat-form-field >
+          <input matInput type="text" name="password1"  #password1="ngModel" [(ngModel)]="password" required   placeholder="Enter your password" [type]="hide ? 'password' : 'text'" maxlength="10" hintLabel="Max 10 characters">
+          <mat-error *ngIf="password1.hasError('required')">its required</mat-error>
+          <mat-error></mat-error>
+            <mat-hint align="end">{{password1.value?.length || 0}}/10</mat-hint>
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+    </div>
+
+    <button type="submit" class="btn btn-success btn-block" (click)="onLogin()">Submit</button>
+    <h6><a  (click)="onforget()">FORGET PASSWORD?</a></h6>
+  </form>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12">
+  </div>
+  </div>
+  </div>
+
+</body>
+</html>

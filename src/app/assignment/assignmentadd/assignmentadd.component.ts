@@ -61,7 +61,7 @@ export class AssignmentaddComponent implements OnInit {
 
   }
   onBack(){
-    this._route.navigate(['/assignment'])
+    this._route.navigate(['../menu/assignment']);
   }
   onAdd(){
 
@@ -87,7 +87,7 @@ export class AssignmentaddComponent implements OnInit {
       }
     );
   }
-
+  this._route.navigate(['../menu/assignment']);
     }
 
 

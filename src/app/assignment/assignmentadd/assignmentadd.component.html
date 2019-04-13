@@ -8,7 +8,7 @@
   <div class="form-group">
     <mat-form-field class="example-full-width">
 
-      <input matInput type="text" id="title" required placeholder="title" [(ngModel)]="title" name="title" #title1="ngModel">
+      <input matInput type="text" id="title" required placeholder="TITLE" [(ngModel)]="title" name="title" #title1="ngModel">
       <mat-error *ngIf="title1.hasError('required')">its required</mat-error>
 
     </mat-form-field>
@@ -21,7 +21,7 @@
 
 
   <mat-form-field>
-    <mat-select placeholder="standard" [(ngModel)]="selectedstandard" name="selectedstandard" #dropdown="ngModel" (selectionChange)="onStandardChange()">
+    <mat-select placeholder="STANDARD" [(ngModel)]="selectedstandard" name="selectedstandard" #dropdown="ngModel" (selectionChange)="onStandardChange()">
       <mat-option *ngFor="let item of arr_standard" [value]="item.standard_id">
         {{item.standard_no}}
       </mat-option>
@@ -30,7 +30,7 @@
   </mat-form-field>
 <br>
   <mat-form-field>
-    <mat-select placeholder="subject" [(ngModel)]="selectedsubject" name="selectedsubject" #dropdown="ngModel">
+    <mat-select placeholder="SUBJECT" [(ngModel)]="selectedsubject" name="selectedsubject" #dropdown="ngModel">
       <mat-option *ngFor="let item of arr_subject" [value]="item">
         {{item.subject_name}}
       </mat-option>
@@ -40,7 +40,7 @@
 
 <br>
 <div class="form-group">
-    <h4>IMAGE:</h4>
+    <h4>PDF:</h4>
     <input  type="file" (change)="onChange($event)">
   </div>
 

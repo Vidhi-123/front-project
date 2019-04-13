@@ -1,22 +1,24 @@
 .sidenav-container {
   height: 100%;
+
 }
 
 .sidenav {
   width: 200px;
+ 
 }
 
 .mat-toolbar.mat-primary {
-  position: sticky;
+  position: relative;
   top: 0;
 }
 .example-card {
   max-width: 400px;
+  
 }
 
 .example-header-image {
   background-image: url('../../assets/ma1.png');
-  background-size: cover;
   height: 60px;
   width: 90px;
 }

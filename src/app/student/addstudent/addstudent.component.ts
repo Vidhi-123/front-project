@@ -85,6 +85,7 @@ this._stuser.getSubjectByStandard(this.selectedstandard).subscribe(
         }
       }
     )
+    this._route.navigate(['../menu/student']);
   }
   onBack(){
     this._route.navigate(['../menu/student']);

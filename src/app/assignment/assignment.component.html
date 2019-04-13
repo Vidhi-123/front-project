@@ -15,7 +15,7 @@
               </mat-form-field>
           </div>
         <div class="col-md-4">
-            <button mat-button color="primary" (click)="onAdd()" type="button" class="btn btn-primary btn-lg" >
+            <button mat-button  (click)="onAdd()" type="button" class="btn btn-primary btn-lg" >
                 <mat-icon >add</mat-icon>
                 ADD NEW ASSIGNMENT
                 </button>
@@ -29,14 +29,14 @@
         <th mat-header-cell *matHeaderCellDef> select </th>
         <td mat-cell *matCellDef="let element">  <mat-checkbox color="primary" (change)="onCheckChange(element)"></mat-checkbox> </td>
       </ng-container>
-      <ng-container matColumnDef="title">
-          <th mat-header-cell *matHeaderCellDef> Title </th>
+      <ng-container matColumnDef="title"  >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> TITLE </th>
           <td mat-cell *matCellDef="let element">  {{element.title}} </td>
         </ng-container>
-    <ng-container matColumnDef="image">
-        <th mat-header-cell *matHeaderCellDef> image </th>
-        <td mat-cell *matCellDef="let element"> <img src="http://localhost:3000/images/ASSIGNMENT/{{element.image}}" style="height: 30px;width: 30px;"  > </td>
-      </ng-container>
+        <ng-container matColumnDef="pdf">
+            <th mat-header-cell *matHeaderCellDef> PDF </th>
+            <td mat-cell *matCellDef="let element"><a href="http://localhost:3000/images/assignment/{{element.pdf}}" target="_blank"> {{element.pdf}} </a></td>
+          </ng-container>
 
   <!-- Position Column -->
   <ng-container matColumnDef="standard_no">
@@ -52,11 +52,11 @@
 
 
     <ng-container matColumnDef="batch_name">
-        <th mat-header-cell *matHeaderCellDef> batch name </th>
+        <th mat-header-cell *matHeaderCellDef> BATCH NAME </th>
         <td mat-cell *matCellDef="let element"> {{element.batch_name}} </td>
       </ng-container>
       <ng-container matColumnDef="submisson_date">
-          <th mat-header-cell *matHeaderCellDef> submisson date </th>
+          <th mat-header-cell *matHeaderCellDef> SUBMISSON DATE </th>
           <td mat-cell *matCellDef="let element">  {{element.submisson_date | date:"dd/MM/yyyy"}} </td>
         </ng-container>
 
@@ -81,8 +81,23 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"  ></tr>
 </table>
-<button mat-button (click)="onDelete()" type="button" class="btn btn-default btn-primary style="width:100px>
+<!-- <button mat-button (click)="onDelete()" type="button" class="btn btn-default btn-primary style="width:100px>
   DELETE ALL
     <mat-icon>delete</mat-icon>
     </button>
 
+    <div class="col-md-8">
+        <mat-paginator [pageSizeOptions]="[5,10,15]"></mat-paginator>
+    </div> -->
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <button mat-button (click)="onDelete()" type="button" class="btn btn-default btn-primary" style="width:50px;">
+                DELETE ALL
+                  <mat-icon>delete</mat-icon>
+                  </button>
+        </div>
+        <div class="col-md-8">
+            <mat-paginator [pageSizeOptions]="[5,10,15]"></mat-paginator>
+        </div>
+      </div>

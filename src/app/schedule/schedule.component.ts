@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { ScheduleService } from '../allservices/schedule.service';
 import { Router } from '@angular/router';
 import { batch_std_sub_fac_schedule } from '../allclasses/batch_std_sub_fac_schedule';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource,MatPaginator,MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-schedule',
@@ -18,6 +18,8 @@ export class ScheduleComponent implements OnInit {
   delarr:batch_std_sub_fac_schedule[]=[];
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['select','timings','subject_name','standard_no','batch_name','faculty_name','schedule_date','action'];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort:MatSort;
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
@@ -68,6 +70,8 @@ export class ScheduleComponent implements OnInit {
 
 
   ngOnInit() {
+    this.dataSource.paginator=this.paginator;
+    this.dataSource.sort=this.sort;
     this._ser.getAllScheduleBatchFacultystdsubject().subscribe(
       (data:any)=>{
         console.log(data);

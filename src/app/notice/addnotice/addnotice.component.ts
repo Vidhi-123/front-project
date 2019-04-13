@@ -5,6 +5,7 @@ import { BatchServiceService } from '../../allservices/batch-service.service';
 import { DailyworkService } from '../../allservices/dailywork.service';
 import { NoticeserviceService } from '../../allservices/noticeservice.service';
 import { notice } from '../../allclasses/notice_class';
+import { Router } from '@angular/router';
 
 
 export class extra
@@ -35,7 +36,7 @@ export class AddnoticeComponent implements OnInit {
 
   extras:extra[]=[];
 
-  constructor(private _ser:BatchServiceService,private _daily_ser:DailyworkService,private _notice_ser:NoticeserviceService) { }
+  constructor(private _ser:BatchServiceService,private _daily_ser:DailyworkService,private _notice_ser:NoticeserviceService,public _route:Router) { }
 onChange(item){
   console.log("xyz");
   if(this.arr1_batch.find(x=>x==item)){
@@ -103,6 +104,10 @@ onAdd()
       }
     );
   }
+  this._route.navigate(['../menu/notice']);
+}
+onBack(){
+  this._route.navigate(['../menu/notice']);
 }
 
   ngOnInit() {

@@ -1,4 +1,11 @@
-   <!-- <mat-form-field>
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+      <!-- <b style="font-size: 50px;margin-left: 520px;font-family: Algerian;">
+        BATCH MANAGEMENT </b> --><h1 align="center">ATTENDANCE MANAGEMENT</h1>
+      </div>
+    </div>
+<!-- <mat-form-field>
     <mat-select placeholder="standard" [(ngModel)]="selected_batch" name="selected_batch" #dropdown="ngModel" (selectionChange)="onBatchChange()">
       <mat-option *ngFor="let item of mergearr" [value]="item.batch_id">
         {{item.batch_name}}
@@ -8,13 +15,35 @@
   </mat-form-field>
 <br> -->
 <!-- <mat-checkbox  *ngFor="let item of mergearr" [(ngModel)]="selected_batch" name="selected_batch" #cb="ngModel" [value]="item.batch_id" (change)="onBatchChange()"  >{{item.batch_name}}</mat-checkbox> -->
-<button mat-button color="primary" (click)="onAdd()" type="button" class="btn btn-primary btn-lg" >
+<!-- <button mat-button *ngFor="let item of mergearr" (click)="onBatchChange(item.batch_id)">{{item.batch_name}}</button> -->
+<!-- <button mat-button  (click)="onAdd()" type="button" class="btn btn-primary btn-lg" align="right" >
     <mat-icon >add</mat-icon>
     ADD NEW ATTENDANCE
-    </button>
+    </button> -->
+    <div class="row">
+
+              
 
 
-<button mat-button *ngFor="let item of mergearr" (click)="onBatchChange(item.batch_id)">{{item.batch_name}}</button>
+
+        <div class="col-md-6">
+            <button mat-button  (click)="onAdd()" type="button" class="btn btn-primary btn-lg" style="margin-left:800px;">
+                <mat-icon >add</mat-icon>
+                ADD NEW ATTENDANCE
+                </button>
+              </div>
+          
+            </div>
+            <br>
+        <div class="row">
+            <div class="col-md-12">
+                <button mat-button *ngFor="let item of mergearr" (click)="onBatchChange(item.batch_id)">{{item.batch_name}}</button>
+              </div>
+            </div>
+            <br>
+           
+
+
 <table>
 <th>Attendance date</th>
 <th>Student name</th>

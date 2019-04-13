@@ -23,13 +23,13 @@ export class UpdatebatchComponent implements OnInit {
       (data:any)=>{
         console.log(this.batch_id,this.fk_standard_id);
         console.log(data);
-        this._route.navigate(['/']);
+        this._route.navigate(['../menu/batch'])
       }
     )
 
   }
   onBack(){
-    this._route.navigate(['/']);
+    this._route.navigate(['../menu/batch'])
   }
   constructor(public _ser:BatchServiceService,private _route:Router,public _actroute:ActivatedRoute) { }
 

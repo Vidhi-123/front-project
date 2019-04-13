@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-12">
       <!-- <b style="font-size: 50px;margin-left: 520px;font-family: Algerian;">
-        BATCH MANAGEMENT </b> --><h1 align="center"> EXAM RESULT MANAGEMENT</h1>
+        BATCH MANAGEMENT </b> --><h1> EXAM RESULT MANAGEMENT</h1>
       </div>
     </div>
       <div class="row">
@@ -86,8 +86,19 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"  ></tr>
 </table>
-<button mat-button (click)="onDelete()" type="button" class="btn btn-default btn-primary style="width:100px>
+<!-- <button mat-button (click)="onDelete()" type="button" class="btn btn-default btn-primary style="width:100px>
   DELETE ALL
     <mat-icon>delete</mat-icon>
-    </button>
-
+    </button> -->
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <button mat-button (click)="onDelete()" type="button" class="btn btn-default btn-primary" style="width:50px;">
+                DELETE ALL
+                  <mat-icon>delete</mat-icon>
+                  </button>
+        </div>
+        <div class="col-md-8">
+            <mat-paginator [pageSizeOptions]="[5,10,15]"></mat-paginator>
+        </div>
+      </div>

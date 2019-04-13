@@ -1,17 +1,19 @@
 .grid-container {
   margin: 20px;
 }
-
+table{
+  width:100%;
+}
+th, td {
+  padding: 10px;
+  text-align: left;
+}
 .dashboard-card {
   position: absolute;
   top: 15px;
   left: 15px;
   right: 15px;
   bottom: 15px;
-}
-table {
-  width: 80%;
-
 }
 
 .more-button {
@@ -22,7 +24,4 @@ table {
 
 .dashboard-card-content {
   text-align: center;
-}
-.material-icons{
-  font-size: 100px
 }

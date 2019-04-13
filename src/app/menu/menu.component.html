@@ -6,9 +6,9 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
-<mat-toolbar color="primary" >MENU</mat-toolbar>
+<mat-toolbar color="primary"  >MENU</mat-toolbar>
 
-    <mat-nav-list>
+    <mat-nav-list style="position: fixed;">
 
         <!-- <a mat-list-item [routerLink]="['/dailywork']" routerLinkActive="router-link-active" >dailyworkadd</a> -->
         <a mat-list-item [routerLink]="['../menu']" routerLinkActive="router-link-active" >HOME</a>
@@ -22,11 +22,11 @@
         <a mat-list-item [routerLink]="['student']" routerLinkActive="router-link-active" >STUDENT</a>
         <a mat-list-item [routerLink]="['examschedule']" routerLinkActive="router-link-active" >EXAM SCHEDULE</a>
         <a mat-list-item [routerLink]="['examresult']" routerLinkActive="router-link-active" >EXAM RESULT</a>
-
+        <a mat-list-item [routerLink]="['']" routerLinkActive="router-link-active" >LOG OUT</a>
 
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content >
     <mat-toolbar color="primary">
       <button
         type="button"
@@ -39,14 +39,14 @@
 
 
 
-    <mat-card-content>
+      <mat-card-content>
         <mat-toolbar mat-card-avatar class="example-header-image">
           <mat-card-title style="margin-left: 90px;">
               <mat-toolbar color="primary">MATHS ACADEMY</mat-toolbar></mat-card-title>
-        </mat-toolbar>
+        </mat-toolbar> 
       <!-- <span>MATHS ACADEMY</span> -->
-      </mat-card-content>
-    </mat-toolbar>
+      </mat-card-content> 
+    </mat-toolbar> 
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>

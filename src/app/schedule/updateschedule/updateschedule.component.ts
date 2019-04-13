@@ -35,9 +35,13 @@ export class UpdatescheduleComponent implements OnInit {
       (data:any)=>{
         //console.log(this.batch_id,this.fk_standard_id);
         console.log(data);
-        this._route.navigate(['/schedule']);
+        this._route.navigate(['../menu/schedule']);
       }
     )
+  }
+  onBack()
+  {
+    this._route.navigate(['../menu/schedule']);
   }
 
   ngOnInit() {

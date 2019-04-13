@@ -29,7 +29,7 @@ export class AssignmentupdateComponent implements OnInit {
   arr:assignment[]=[];
   arr_image:batchstandardsubjectassign[]=[];
 
-  image:string;
+  pdf:string;
   arrbatch:batch_class[]=[];
   arrstandard:standard_class[]=[];
   arrsubject:subject_class[]=[];
@@ -45,7 +45,7 @@ export class AssignmentupdateComponent implements OnInit {
       const fd=new FormData;
       fd.append('assignment_id',this.assignment_id.toString());
       fd.append('title',this.title);
-      fd.append('image',this.selectedFile,this.selectedFile.name);
+      fd.append('pdf',this.selectedFile,this.selectedFile.name);
       fd.append('fk_standard_id',this.fk_standard_id.toString());
       fd.append('fk_batch_id',this.fk_batch_id.toString());
       fd.append('fk_subject_id',this.fk_subject_id.toString());
@@ -54,26 +54,27 @@ export class AssignmentupdateComponent implements OnInit {
       this._assser.updateAssignmentImage(fd).subscribe(
         (data:any)=>{
           console.log(data);
-          this._route.navigate(['/assignment'])
+          this._route.navigate(['../menu/assignment']);
           //this.arr.push(new dailywork_class(this.work_id,this.image,this.selected.standard_id,this.selected2.subject_id,this.selected1.batch_id,this.title));
         }
       );
     }
     else{
     console.log(this.assignment_id,this.fk_standard_id);
-    this._assser.updateAssignment(new assignment(this.assignment_id,this.image,this.fk_standard_id,this.fk_subject_id,this.fk_batch_id,this.title)).subscribe(
+    this._assser.updateAssignment(new assignment(this.assignment_id,this.pdf,this.fk_standard_id,this.fk_subject_id,this.fk_batch_id,this.title)).subscribe(
 
       (data:any)=>{
         console.log(this.assignment_id,this.fk_standard_id);
         console.log(data);
         // this._route.navigate(['/']);
+        this._route.navigate(['../menu/assignment']);
       }
     )
 
   }
 }
   onBack(){
-    this._route.navigate(['/assignment'])
+    this._route.navigate(['../menu/assignment']);
   }
 
   constructor(public _assser:AssignmentService,public _batchser:BatchServiceService,public _route:Router,public _actroute:ActivatedRoute) { }
@@ -84,8 +85,8 @@ export class AssignmentupdateComponent implements OnInit {
       (data:batchstandardsubjectassign[])=>{
         console.log('hi')
         this.title=data[0].title;
-        this.image=data[0].image;
-        console.log(this.image)
+        this.pdf=data[0].pdf;
+        console.log(this.pdf)
         // console.log(this.batch_name);
         this.fk_standard_id=data[0].fk_standard_id;
 

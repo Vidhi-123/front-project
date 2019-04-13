@@ -45,8 +45,29 @@ export class DailyworkaddComponent implements OnInit {
         console.log(data);
       }
     );
+    }
 
-  }
+  //   this._ser.getSubjectByStandard(this.selected1).subscribe(
+      
+  //     (data:any[])=>{
+  //       console.log(this.selected1);
+  //       this.arr2=data;
+  //       console.log(data);
+  //     }
+  //   );
+
+  // }
+
+  // onSubjectChange(){
+  //   console.log("hi");
+  //   this._ser.getSubjectByStandard(this.selected2).subscribe(
+  //     (data:subject_class[])=>{
+  //       this.arr2=data;
+  //       console.log(data);
+  //     }
+  //   );
+
+  // }
 
   onCheckChange(item)
   {
@@ -60,8 +81,10 @@ export class DailyworkaddComponent implements OnInit {
     console.log(this.arr_b);
 
   }
-  onBack(){
-    this._route.navigate(['/alldaily'])
+  onBack()
+  {
+    
+    this._route.navigate(['../menu/alldaily']);
   }
   onAdd(){
     console.log('hi')
@@ -70,24 +93,29 @@ export class DailyworkaddComponent implements OnInit {
     {
       console.log(this.arr_b[this.i].batch_id);
       console.log(this.selected1);
+      console.log(this.selected2);
       fd.set('title',this.title);
     fd.set('fk_batch_id',this.arr_b[this.i].batch_id.toString());
     fd.set('fk_standard_id',this.selected1.toString());
 
-    fd.set('pdf',this.selectedFile,this.selectedFile.name);
+    fd.set('image',this.selectedFile,this.selectedFile.name);
 
     fd.set( 'fk_subject_id',this.selected2.subject_id.toString());
 
     console.log(fd);
     this._ser.dailywork(fd).subscribe(
-      (data:any)=>{
+      (data:any)=>
+      {
+
         console.log(data);
 
 
       }
+      
     );
+  
   }
-
+  this._route.navigate(['../menu/alldaily']);
     }
 
 

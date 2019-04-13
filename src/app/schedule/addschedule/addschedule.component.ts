@@ -103,7 +103,7 @@ faculty_name:string
               console.log(datas);
             }
           );
-
+          this._route.navigate(['../menu/schedule']);
         }
         else
         {

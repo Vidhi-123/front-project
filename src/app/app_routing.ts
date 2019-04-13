@@ -33,12 +33,15 @@ import { AddexamresultComponent } from './examresult/addexamresult/addexamresult
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { ForgetpassComponent } from './forgetpass/forgetpass.component';
+import { Home1Component } from './home1/home1.component';
 
 
 const arr: Routes = [
   {path:'',component:LoginComponent},
+  {path:'login',component:LoginComponent},
   {path:'menu',component:MenuComponent,children:[
-    {path: '', component: HomeComponent},
+    {path: '', component: Home1Component},
+
 {path: 'batch', component: BatchComponent},
 {path: 'updatebatch/:batch_id', component: UpdatebatchComponent},
 {path:'addbatch',component:AddbatchComponent},
@@ -69,7 +72,7 @@ const arr: Routes = [
 {path:'updateexamschedule/:exam_id',component:UpdateexamscheduleComponent},
 {path:'examresult',component:ExamresultComponent},
 {path:'addexamresult',component:AddexamresultComponent},
-{path:'forget',component:ForgetpassComponent}
+{path:'forget',component:ForgetpassComponent},
 
   ]}
 ];

@@ -30,7 +30,7 @@
     </mat-form-field>
 <br>
     <mat-form-field>
-      <mat-select placeholder="subject" [(ngModel)]="selected2" name="selected2" #dropdown="ngModel">
+      <mat-select placeholder="subject" [(ngModel)]="selected2" name="selected2" #dropdown="ngModel" >
         <mat-option *ngFor="let item of arr2" [value]="item">
           {{item.subject_name}}
         </mat-option>

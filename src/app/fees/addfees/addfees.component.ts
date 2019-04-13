@@ -26,7 +26,7 @@ onAdd(){
       console.log(data);
       this.arr2.push(new fees_detail(0,this.fk_fees_id,this.amount,this.mode));
       console.log(this.arr2)
-      this._route.navigate(['/fees']);
+      this._route.navigate(['../menu/fees']);
 
     }
 

@@ -9,19 +9,23 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatExpansionModule} from '@angular/material/expansion';
 //import { routing } from '../../app_routing';
 import { routing } from "./app_routing";
+
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { FusionChartsModule } from 'angular-fusioncharts';
 import * as FusionCharts from 'fusioncharts';
 // Load Charts module
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 // Load fusion theme
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
-
+import { CalendarModule, DateAdapter } from 'angular-calendar';
 // Add dependencies to FusionChartsModule
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 
-import { MatInputModule,MatFormFieldControl,MatMenuModule, MatPaginatorModule,MatProgressSpinnerModule, MatSortModule, MatCardModule,MatSelectModule,MatOptionModule, MatIconModule, MatCheckboxModule, MatRadioModule, MatToolbarModule, MatSidenavModule, MatListModule, MatGridListModule, MatNativeDateModule} from '@angular/material';
+import { MatInputModule,MatFormFieldControl,MatMenuModule, MatPaginatorModule,MatProgressSpinnerModule, MatSortModule, MatCardModule,MatSelectModule,MatOptionModule, MatIconModule, MatCheckboxModule, MatRadioModule, MatToolbarModule, MatSidenavModule, MatListModule, MatGridListModule, MatNativeDateModule, MatTabsModule} from '@angular/material';
 import { UpdatebatchComponent } from './batch/updatebatch/updatebatch.component';
 import { AddbatchComponent } from './batch/addbatch/addbatch.component';
 import { DailyworkaddComponent } from './dailyworkadd/dailyworkadd.component';
@@ -58,6 +62,9 @@ import { ExamresultComponent } from './examresult/examresult.component';
 import { AddexamresultComponent } from './examresult/addexamresult/addexamresult.component';
 import { LoginComponent } from './login/login.component';
 import { ForgetpassComponent } from './forgetpass/forgetpass.component';
+import { Home1Component } from './home1/home1.component';
+
+
 
 
 
@@ -76,6 +83,10 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme)
     NoticeComponent,
     AddnoticeComponent,
     UpdatenoticeComponent,
+    UpdateexamscheduleComponent,
+    ExamresultComponent,
+    AddexamresultComponent,
+    RemainingFeesComponent,
     AssignmentComponent,
     AssignmentaddComponent,
     AssignmentupdateComponent,
@@ -92,10 +103,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme)
     UpdatestudentComponent,
     ExamscheduleComponent,
     AddexamscheduleComponent,
-    UpdateexamscheduleComponent,
-    ExamresultComponent,
-    AddexamresultComponent,
-    RemainingFeesComponent,
+
 
     AddfeesComponent,
 
@@ -105,12 +113,20 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme)
 
     ForgetpassComponent,
 
+    Home1Component,
+
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+
+
+
+
+    MatExpansionModule,
     MatButtonModule,
     MatTableModule,
     MatFormFieldModule,
@@ -124,16 +140,29 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme)
     FusionChartsModule,
     MatSelectModule,
     MatOptionModule,
+
+
     routing,
     MatCheckboxModule,
     MatRadioModule,
+
     LayoutModule,
+    NgbModalModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTabsModule,
+
+  
+
+
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
 
 
   ],

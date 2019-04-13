@@ -1,0 +1,480 @@
+
+
+
+
+
+
+
+
+
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile [colspan]="2" [rowspan]="2">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+           <h1>ATTENDANCE</h1>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+              <table border="2">
+                <tr>
+                  <th>STUDENT NAME</th>
+                  <th>TOTAL COUNT</th>
+                </tr>
+                <tr>
+                  <td style="background-color: rgba(255, 51, 0, 0.904)">VIDHI</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td style="background-color: yellow">HETVEE</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                <td style="background-color: red">NIKITA</td>
+                <td>0</td>
+                </tr>
+                <tr>
+                  <td style="background-color: green">SHIVANI</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td style="background-color: green">KINJAL</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td style="background-color: rgba(30, 255, 0, 0.377)">DEEP</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                <td style="background-color: green">MEET</td>
+                <td>20</td>
+              </tr>
+
+              <tr>
+                <td style="background-color:red">AAGAM</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td style="background-color: rgba(255, 51, 0, 0.904)">PRACHI</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td style="background-color: rgba(30, 255, 0, 0.377)">PRIYANSHI</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td style="background-color: rgba(30, 255, 0, 0.377)">KAVISH</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td  style="background-color:red">SHRADHHA</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td style="background-color: rgba(30, 255, 0, 0.377)">HELLY</td>
+                <td>10</td>
+              </tr>
+
+
+              </table>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="grid-container">
+
+    <mat-grid-list cols="2" rowHeight="350px">
+      <mat-grid-tile style="margin-left: 750px;margin-top: -370px;" [colspan]="1" [rowspan]="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+             <h1>LINKS</h1>
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div> -->
+ 
+
+
+
+
+
+
+  <div class="grid-container">
+
+      <mat-grid-list cols="4" rowHeight="450px">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+               <h1>SCHEDULE</h1>
+                <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                  <button mat-menu-item>Expand</button>
+                  <button mat-menu-item>Remove</button>
+                </mat-menu>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              <div>
+                <table mat-table [dataSource]="schedulesource"  class="mat-elevation-z8" matSort>
+      
+      
+                    <ng-container matColumnDef="batch_name">
+                        <th mat-header-cell *matHeaderCellDef> BATCHES </th>
+                        <td mat-cell *matCellDef="let element">  {{element.batch_name}} </td>
+                      </ng-container>
+                
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="timings">
+                    <th mat-header-cell *matHeaderCellDef> TIMINGS </th>
+                    <td mat-cell *matCellDef="let element"> {{element.timings}} </td>
+                  </ng-container>
+           
+                  <ng-container matColumnDef="faculty_name">
+                      <th mat-header-cell *matHeaderCellDef> FACULTY NAME </th>
+                      <td mat-cell *matCellDef="let element"> {{element.faculty_name}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="subject_name">
+                        <th mat-header-cell *matHeaderCellDef> SUBJECT NAME </th>
+                        <td mat-cell *matCellDef="let element"> {{element.subject_name}} </td>
+                      </ng-container>
+              
+              
+              
+              
+                      <tr mat-header-row *matHeaderRowDef="displayedschedule"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedschedule;"  ></tr>
+
+                    </table>
+                  </div>
+              
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="grid-container">
+
+    
+        <!-- <mat-grid-list cols="4" rowHeight="350px"> -->
+            <mat-grid-list cols="2" rowHeight="500px">
+            <mat-grid-tile style="margin-left: 750px;margin-top:-480px;" [colspan]="1" [rowspan]="1">
+              <mat-card class="dashboard-card">
+                <mat-card-header>
+                  <mat-card-title>
+                   <h1>UPCOMING EXAMS</h1>
+                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                      <button mat-menu-item>Expand</button>
+                      <button mat-menu-item>Remove</button>
+                    </mat-menu>
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                  <div>
+                      <mat-accordion>
+                          <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                              <mat-panel-title>
+                               8 PANEL
+                              </mat-panel-title>
+                              <mat-panel-description>
+                               VIEW DESCRIPTION
+                              </mat-panel-description>
+                            </mat-expansion-panel-header>
+                  
+                           
+                  
+                            
+                  
+                            <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8" matSort>
+                  
+                  
+                                <ng-container matColumnDef="total_batches">
+                                    <th mat-header-cell *matHeaderCellDef> BATCHES </th>
+                                    <td mat-cell *matCellDef="let element">  {{element.total_batches}} </td>
+                                  </ng-container>
+                            
+                          
+                            <!-- Position Column -->
+                            <ng-container matColumnDef="exam_date">
+                                <th mat-header-cell *matHeaderCellDef> EXAM DATE </th>
+                                <td mat-cell *matCellDef="let element"> {{element.exam_date}} </td>
+                              </ng-container>
+                       
+                              <ng-container matColumnDef="subject_name">
+                                  <th mat-header-cell *matHeaderCellDef> SUBJECT NAME </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.subject_name}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="exam_timings">
+                                    <th mat-header-cell *matHeaderCellDef> EXAM TIMINGS </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.exam_timings}} </td>
+                                  </ng-container>
+                          
+                          
+                          
+                          
+                                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"  ></tr>
+            
+                                </table>
+                                </mat-expansion-panel>
+              
+              </mat-accordion>
+              
+              
+                    
+            </div>
+
+            <div>
+                <mat-accordion>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                         9 PANEL
+                        </mat-panel-title>
+                        <mat-panel-description>
+                         VIEW DESCRIPTION
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+            
+                     
+            
+                      
+            
+                      <table mat-table [dataSource]="dataSource1"  class="mat-elevation-z8" matSort>
+            
+            
+                          <ng-container matColumnDef="total_batches">
+                              <th mat-header-cell *matHeaderCellDef> BATCHES </th>
+                              <td mat-cell *matCellDef="let element">  {{element.total_batches}} </td>
+                            </ng-container>
+                      
+                    
+                      <!-- Position Column -->
+                      <ng-container matColumnDef="exam_date">
+                          <th mat-header-cell *matHeaderCellDef> EXAM DATE </th>
+                          <td mat-cell *matCellDef="let element"> {{element.exam_date}} </td>
+                        </ng-container>
+                 
+                        <ng-container matColumnDef="subject_name">
+                            <th mat-header-cell *matHeaderCellDef> SUBJECT NAME </th>
+                            <td mat-cell *matCellDef="let element"> {{element.subject_name}} </td>
+                          </ng-container>
+                          <ng-container matColumnDef="exam_timings">
+                              <th mat-header-cell *matHeaderCellDef> EXAM TIMINGS </th>
+                              <td mat-cell *matCellDef="let element"> {{element.exam_timings}} </td>
+                            </ng-container>
+                    
+                    
+                    
+                    
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns1;"  ></tr>
+      
+                          </table>
+                          </mat-expansion-panel>
+        
+        </mat-accordion>
+        
+        
+              
+      </div>
+
+      <div>
+          <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                   10 PANEL
+                  </mat-panel-title>
+                  <mat-panel-description>
+                   VIEW DESCRIPTION
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+      
+               
+      
+                
+      
+                <table mat-table [dataSource]="dataSource2"  class="mat-elevation-z8" matSort>
+      
+      
+                    <ng-container matColumnDef="total_batches">
+                        <th mat-header-cell *matHeaderCellDef> BATCHES </th>
+                        <td mat-cell *matCellDef="let element">  {{element.total_batches}} </td>
+                      </ng-container>
+                
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="exam_date">
+                    <th mat-header-cell *matHeaderCellDef> EXAM DATE </th>
+                    <td mat-cell *matCellDef="let element"> {{element.exam_date}} </td>
+                  </ng-container>
+           
+                  <ng-container matColumnDef="subject_name">
+                      <th mat-header-cell *matHeaderCellDef> SUBJECT NAME </th>
+                      <td mat-cell *matCellDef="let element"> {{element.subject_name}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="exam_timings">
+                        <th mat-header-cell *matHeaderCellDef> EXAM TIMINGS </th>
+                        <td mat-cell *matCellDef="let element"> {{element.exam_timings}} </td>
+                      </ng-container>
+              
+              
+              
+              
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns2;"  ></tr>
+
+                    </table>
+                    </mat-expansion-panel>
+  
+  </mat-accordion>
+  
+  
+        
+</div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>    
+  </div>
+
+  <div class="grid-container" style="margin-top:-500px;">
+
+      <mat-grid-list cols="1" rowHeight="450px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+               <h1>FEES</h1>
+                <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                  <button mat-menu-item>Expand</button>
+                  <button mat-menu-item>Remove</button>
+                </mat-menu>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              <div>
+                  <table mat-table [dataSource]="feessource"  class="mat-elevation-z8" matSort>
+      
+      
+                      <ng-container matColumnDef="student_name">
+                          <th mat-header-cell *matHeaderCellDef> STUDENT NAME </th>
+                          <td mat-cell *matCellDef="let element">  {{element.student_name}} </td>
+                        </ng-container>
+                  
+                
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="total_fees">
+                      <th mat-header-cell *matHeaderCellDef> TOTAL FEES </th>
+                      <td mat-cell *matCellDef="let element"> {{element.total_fees}} </td>
+                    </ng-container>
+             
+                    <ng-container matColumnDef="pending_fees">
+                        <th mat-header-cell *matHeaderCellDef> PENDING FEES </th>
+                        <td mat-cell *matCellDef="let element"> {{element.pending_fees}} </td>
+                      </ng-container>
+                      <ng-container matColumnDef="paid_fees">
+                          <th mat-header-cell *matHeaderCellDef> PAID FEES </th>
+                          <td mat-cell *matCellDef="let element"> {{element.paid_fees}} </td>
+                        </ng-container>
+                
+                
+                
+                
+                        <tr mat-header-row *matHeaderRowDef="displayedfees"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedfees;"  ></tr>
+  
+                      </table>
+                
+    
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    
+    
+    </div> 
+    

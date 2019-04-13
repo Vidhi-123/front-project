@@ -15,10 +15,13 @@ export class DailyworkService {
   updatedailywork:string="http://localhost:3000/dailyworkadd/"
   dailyAllDel:string="http://localhost:3000/dailyworkdel/";
   updateimage:string="http://localhost:3000/updatedailyImage/";
+  dailysubject:string="http://localhost:3000/dailysubject/";
 
   constructor(private _http:HttpClient) { }
   dailywork(item:FormData){
-    return this._http.post(this.dailyworkadd,item)
+    console.log(item)
+    return this._http.post(this.dailyworkadd,item);
+    
   }
   getAllBatch(){
     return this._http.get(this.batch)
@@ -34,6 +37,10 @@ export class DailyworkService {
   }
   getBatchStandardSubjectonDailyWork(){
     return this._http.get(this.alldaily);
+  }
+  getSubjectByStandard(standard_id){
+    console.log(standard_id);
+    return this._http.get(this.dailysubject+standard_id);
   }
   updateDaily(item:dailywork_class)
   {

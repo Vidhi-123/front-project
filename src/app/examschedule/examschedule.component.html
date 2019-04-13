@@ -90,8 +90,23 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"  ></tr>
 </table>
-<button mat-button (click)="onDelete()" type="button" class="btn btn-default btn-primary style="width:100px>
+<!-- <button mat-button (click)="onDelete()" type="button" class="btn btn-default btn-primary style="width:100px>
   DELETE ALL
     <mat-icon>delete</mat-icon>
     </button>
 
+    <div class="col-md-8">
+        <mat-paginator [pageSizeOptions]="[5,10,15]"></mat-paginator>
+    </div> -->
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <button mat-button (click)="onDelete()" type="button" class="btn btn-default btn-primary" style="width:50px;">
+                DELETE ALL
+                  <mat-icon>delete</mat-icon>
+                  </button>
+        </div>
+        <div class="col-md-8">
+            <mat-paginator [pageSizeOptions]="[5,10,15]"></mat-paginator>
+        </div>
+      </div>

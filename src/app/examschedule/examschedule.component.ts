@@ -15,6 +15,7 @@ export class ExamscheduleComponent implements OnInit {
   dataSource = new MatTableDataSource();
 
   displayedColumns: string[] = ['select','batch_name','standard_no','subject_name', 'exam_date','marks','hours','action'];
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
@@ -46,6 +47,8 @@ export class ExamscheduleComponent implements OnInit {
 
   }
   ngOnInit() {
+    this.dataSource.paginator=this.paginator;
+    this.dataSource.sort=this.sort;
     this._examscheduleser.getBatchStdSubjectExam().subscribe(
       (data:any)=>{
         console.log(data);

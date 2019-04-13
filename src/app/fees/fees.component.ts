@@ -13,7 +13,7 @@ export class FeesComponent implements OnInit {
 
   constructor(private _ser1:FeesService,private _route:Router) { }
   arrfees:fees[]=[];
-  displayedColumns: string[] = ['select','student_name','batch_name', 'total_fees','action'];
+  displayedColumns: string[] = ['select','student_name','batch_name', 'total_fees'];
   dataSource = new MatTableDataSource();
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
