@@ -1,0 +1,129 @@
+<!-- 
+
+
+  <div class="container">
+
+
+
+    <hr>
+
+    <div class="form-group">
+
+       <mat-form-field class="example-full-width" hintLabel="Must be valid Email Id">
+
+        <input matInput
+
+        name="email_id"
+
+        ngModel
+
+        #email_id="ngModel"
+
+        required
+
+        email
+
+        placeholder="Email Id"
+
+        [(ngModel)]="email_id1"
+
+        >
+
+        <mat-error *ngIf="email_id?.hasError('required')">
+
+          email id is required
+
+        </mat-error>
+
+
+
+        <mat-error *ngIf="!email_id?.hasError('required')">
+
+          email id is not valid
+
+        </mat-error>
+
+      </mat-form-field>
+
+      <div class="btn-group">
+
+        
+
+          <button mat-raised-button (click)="onclicksendpassword()" color="primary">Sent Code</button>
+
+          &nbsp;&nbsp;&nbsp;
+
+          <button mat-raised-button (click)="onclickcancel()" color="warn">Cancel</button>
+
+    </div> -->
+
+     
+    <div class="container" >
+      <div class="card size">
+        <div class="card-header card-header-warning"  >
+          <h2 class="card-title ">EMAIL PORTAL</h2>
+          
+          <!-- <p class="card-category"> click on header to sort the data</p> -->
+        </div>
+        
+    
+        <div class="card-body" >
+         
+          <div class="table-responsive">
+              <mat-form-field  hintLabel="Must be valid Email Id">
+
+                  <input matInput
+          
+                  name="email_id"
+          
+                  ngModel
+          
+                  #email_id="ngModel"
+          
+                  required
+          
+                  email
+          
+                  placeholder="Email Id"
+          
+                  [(ngModel)]="email_id1"
+          
+                  >
+          
+                  <mat-error *ngIf="email_id?.hasError('required')">
+          
+                    email id is required
+          
+                  </mat-error>
+          
+          
+          
+                  <mat-error *ngIf="!email_id?.hasError('required')">
+          
+                    email id is not valid
+          
+                  </mat-error>
+          
+                </mat-form-field>
+          
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+              <button mat-raised-button (click)="onclicksendpassword()" color="primary">Sent Code</button>
+              
+          </div>
+          <div class="col-md-8">
+              <button mat-raised-button (click)="onclickcancel()" color="warn">Cancel</button>
+          </div>
+        </div>
+        </div>
+      </div>
+  
+      
+      
+  
+
+
+
+

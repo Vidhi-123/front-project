@@ -77,8 +77,9 @@ export class DailyworkComponent implements OnInit {
           if(this.merge_arr.find(x=>x==this.del_arr[this.i])){
             this.merge_arr.splice(this.merge_arr.indexOf(this.del_arr[this.i]),1)
           }
+          this.dataSource.data=this.merge_arr; 
         }
-        this.dataSource.data=this.merge_arr ;
+        
       }
     );
   }

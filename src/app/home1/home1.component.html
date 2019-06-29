@@ -1,3 +1,154 @@
+<h1 class="mat-h1">Dashboard</h1>
+<!-- <div>
+ <div class="grid-container">
+  <div class="row">
+    </div>
+    <mat-grid-list cols="4" rowHeight="250px">
+      <mat-grid-tile  [colspan]="1" [rowspan]="1">
+        <mat-card class="dashboard-card" style="background-color:rgb(0, 238, 255)">
+          <mat-card-header>
+            <mat-card-title>
+             <h3 align="center"style="margin-left:20px;">TOTAL MATERIALS</h3>
+            
+          
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div >
+                <mat-icon style="font-size: 50px;margin-left: -10px;">assignment</mat-icon>
+              <h4 style="font-size:40px;margin-left: 15px;">{{pdf}}</h4>
+            
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+
+
+
+
+
+        
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div> 
+
+
+
+
+
+
+
+  <div class="grid-container">
+
+    <mat-grid-list cols="4" rowHeight="250px">
+      <mat-grid-tile style="margin-left: 350px;margin-top:-270px;" [colspan]="1" [rowspan]="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+             <h3>TOTAL BATCHES</h3>
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <h4>{{batch_name}}</h4>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+
+
+
+
+
+        
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div> 
+
+
+
+
+
+  <div class="grid-container">
+
+    <mat-grid-list cols="4" rowHeight="250px">
+      <mat-grid-tile style="margin-left: 700px;margin-top:-540px;" [colspan]="1" [rowspan]="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+             <h3>TOTAL STUDENTS</h3>
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <h4>{{student_name}}</h4>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+
+
+
+
+
+        
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div> 
+
+  <div class="grid-container">
+
+    <mat-grid-list cols="4" rowHeight="250px">
+      <mat-grid-tile style="margin-left: 1050px;margin-top:-810px;" [colspan]="1" [rowspan]="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+             <h3>TOTAL EXAMS</h3>
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <h4>{{examcnt}}</h4>
+             
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+
+
+
+
+
+        
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>  -->
+
+<!-- from here  -->
+
+
+  
 
 
 
@@ -6,11 +157,10 @@
 
 
 
-
-<div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
+<!-- <div class="grid-container">
+  
   <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile [colspan]="2" [rowspan]="2">
+    <mat-grid-tile style="margin-top: -800px;" [colspan]="2" [rowspan]="2">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
@@ -93,10 +243,301 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+ -->
 
 
 
 
+ <div class="grid-container">
+<mat-grid-list cols="1" rowHeight="350px">
+    <mat-grid-tile style="margin-top: -800px;" [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card" style="overflow:scroll;">
+        <mat-card-header>
+          <mat-card-title>
+           <h1>ATTENDANCE</h1>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+              <mat-accordion>
+                  <mat-expansion-panel style="background-color:tomato">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                       8 PANEL
+                      </mat-panel-title>
+                      <mat-panel-description>
+                       VIEW DESCRIPTION
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+          
+                   
+          
+                    
+          
+                    <table mat-table [dataSource]="std_8_dataSource"  class="mat-elevation-z8" matSort>
+          
+          
+                        <ng-container matColumnDef="batch_name">
+                            <th mat-header-cell *matHeaderCellDef> BATCH </th>
+                            <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'">  {{element.batch_name}} </td>
+                          </ng-container>
+                    
+                  
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="student_name">
+                        <th mat-header-cell *matHeaderCellDef> STUDENT NAME </th>
+                        <td mxat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'"> {{element.student_name}} </td>
+                      </ng-container>
+               
+                      
+                        <ng-container matColumnDef="total">
+                            <th mat-header-cell *matHeaderCellDef> ATTENDANCE </th>
+                            <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'"> {{element.total}} </td>
+                          </ng-container>
+                  
+                  
+                  
+                  
+                          <tr mat-header-row *matHeaderRowDef="attendancedisplayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: attendancedisplayedColumns;"  ></tr>
+    
+                        </table>
+                        </mat-expansion-panel>
+      
+      </mat-accordion>
+      
+      
+            
+    </div>
+
+    <div>
+        <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 9 PANEL
+                </mat-panel-title>
+                <mat-panel-description>
+                 VIEW DESCRIPTION
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+    
+             
+    
+              
+    
+              <table mat-table [dataSource]="std_9_dataSource"  class="mat-elevation-z8" matSort>
+          
+          
+                  <ng-container matColumnDef="batch_name">
+                      <th mat-header-cell *matHeaderCellDef> BATCH </th>
+                      <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'">  {{element.batch_name}} </td>
+                    </ng-container>
+              
+            
+              <!-- Position Column -->
+              <ng-container matColumnDef="student_name">
+                  <th mat-header-cell *matHeaderCellDef> STUDENT NAME </th>
+                  <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'"> {{element.student_name}} </td>
+                </ng-container>
+         
+                
+                  <ng-container matColumnDef="total">
+                      <th mat-header-cell *matHeaderCellDef> ATTENDANCE </th>
+                      <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'"> {{element.total}} </td>
+                    </ng-container>
+            
+            
+            
+            
+                    <tr mat-header-row *matHeaderRowDef="attendancedisplayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: attendancedisplayedColumns;"  ></tr>
+
+                  </table>
+                  </mat-expansion-panel>
+
+                  </mat-accordion>
+
+
+      
+</div>
+
+<div>
+  <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+           10 PANEL
+          </mat-panel-title>
+          <mat-panel-description>
+           VIEW DESCRIPTION
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+       
+
+        
+
+        <table mat-table [dataSource]="std_10_dataSource"  class="mat-elevation-z8" matSort>
+          
+          
+            <ng-container matColumnDef="batch_name">
+                <th mat-header-cell *matHeaderCellDef> BATCH </th>
+                <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'">  {{element.batch_name}} </td>
+              </ng-container>
+        
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="student_name">
+            <th mat-header-cell *matHeaderCellDef> STUDENT NAME </th>
+            <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'"> {{element.student_name}} </td>
+          </ng-container>
+   
+          
+            <ng-container matColumnDef="total">
+                <th mat-header-cell *matHeaderCellDef> ATTENDANCE </th>
+                <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'"> {{element.total}} </td>
+              </ng-container>
+      
+      
+      
+      
+              <tr mat-header-row *matHeaderRowDef="attendancedisplayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: attendancedisplayedColumns;"  ></tr>
+
+            </table>
+            </mat-expansion-panel>
+
+</mat-accordion>
+
+
+
+</div>
+
+
+<div>
+    <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+             11 PANEL
+            </mat-panel-title>
+            <mat-panel-description>
+             VIEW DESCRIPTION
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+  
+         
+  
+          
+  
+          <table mat-table [dataSource]="std_11_dataSource"  class="mat-elevation-z8" matSort>
+            
+            
+              <ng-container matColumnDef="batch_name">
+                  <th mat-header-cell *matHeaderCellDef> BATCH </th>
+                  <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'">  {{element.batch_name}} </td>
+                </ng-container>
+          
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="student_name">
+              <th mat-header-cell *matHeaderCellDef> STUDENT NAME </th>
+              <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'"> {{element.student_name}} </td>
+            </ng-container>
+     
+            
+              <ng-container matColumnDef="total">
+                  <th mat-header-cell *matHeaderCellDef> ATTENDANCE </th>
+                  <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'"> {{element.total}} </td>
+                </ng-container>
+        
+        
+        
+        
+                <tr mat-header-row *matHeaderRowDef="attendancedisplayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: attendancedisplayedColumns;"  ></tr>
+  
+              </table>
+              </mat-expansion-panel>
+  
+  </mat-accordion>
+  
+  
+  
+  </div>
+
+
+
+
+
+
+
+
+  <div>
+      <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+               12 PANEL
+              </mat-panel-title>
+              <mat-panel-description>
+               VIEW DESCRIPTION
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+    
+           
+    
+            
+    
+            <table mat-table [dataSource]="std_12_dataSource"  class="mat-elevation-z8" matSort>
+              
+              
+                <ng-container matColumnDef="batch_name">
+                    <th mat-header-cell *matHeaderCellDef> BATCH </th>
+                    <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'">  {{element.batch_name}} </td>
+                  </ng-container>
+            
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="student_name">
+                <th mat-header-cell *matHeaderCellDef> STUDENT NAME </th>
+                <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'"> {{element.student_name}} </td>
+              </ng-container>
+       
+              
+                <ng-container matColumnDef="total">
+                    <th mat-header-cell *matHeaderCellDef> ATTENDANCE </th>
+                    <td mat-cell *matCellDef="let element" [style.background-color]="element.total>10?'green':'red'"> {{element.total}} </td>
+                  </ng-container>
+          
+          
+          
+          
+                  <tr mat-header-row *matHeaderRowDef="attendancedisplayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: attendancedisplayedColumns;"  ></tr>
+    
+                </table>
+                </mat-expansion-panel>
+    
+    </mat-accordion>
+    
+    
+    
+    </div>
+
+</mat-card-content>
+</mat-card>
+</mat-grid-tile>
+</mat-grid-list>    
+</div>
 
 
 
@@ -164,7 +605,7 @@
   <div class="grid-container">
 
       <mat-grid-list cols="4" rowHeight="450px">
-        <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <mat-grid-tile style="margin-top:-800px;" [colspan]="2" [rowspan]="1">
           <mat-card class="dashboard-card">
             <mat-card-header>
               <mat-card-title>
@@ -232,8 +673,8 @@
     
         <!-- <mat-grid-list cols="4" rowHeight="350px"> -->
             <mat-grid-list cols="2" rowHeight="500px">
-            <mat-grid-tile style="margin-left: 750px;margin-top:-480px;" [colspan]="1" [rowspan]="1">
-              <mat-card class="dashboard-card">
+            <mat-grid-tile style="margin-left: 750px;margin-top:-1265px;" [colspan]="1" [rowspan]="1">
+              <mat-card class="dashboard-card" style="overflow:scroll;">
                 <mat-card-header>
                   <mat-card-title>
                    <h1>UPCOMING EXAMS</h1>
@@ -263,28 +704,28 @@
                   
                             
                   
-                            <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8" matSort>
+                            <table mat-table [dataSource]="e_std_8_dataSource"  class="mat-elevation-z8" matSort>
                   
                   
-                                <ng-container matColumnDef="total_batches">
-                                    <th mat-header-cell *matHeaderCellDef> BATCHES </th>
-                                    <td mat-cell *matCellDef="let element">  {{element.total_batches}} </td>
+                                <ng-container matColumnDef="batch_name">
+                                    <th mat-header-cell *matHeaderCellDef> BATCH </th>
+                                    <td mat-cell *matCellDef="let element">  {{element.batch_name}} </td>
                                   </ng-container>
                             
                           
                             <!-- Position Column -->
                             <ng-container matColumnDef="exam_date">
                                 <th mat-header-cell *matHeaderCellDef> EXAM DATE </th>
-                                <td mat-cell *matCellDef="let element"> {{element.exam_date}} </td>
+                                <td mat-cell *matCellDef="let element"> {{element.exam_date| date:"dd/MM/yyyy"}} </td>
                               </ng-container>
                        
                               <ng-container matColumnDef="subject_name">
                                   <th mat-header-cell *matHeaderCellDef> SUBJECT NAME </th>
                                   <td mat-cell *matCellDef="let element"> {{element.subject_name}} </td>
                                 </ng-container>
-                                <ng-container matColumnDef="exam_timings">
-                                    <th mat-header-cell *matHeaderCellDef> EXAM TIMINGS </th>
-                                    <td mat-cell *matCellDef="let element"> {{element.exam_timings}} </td>
+                                <ng-container matColumnDef="hours">
+                                    <th mat-header-cell *matHeaderCellDef> HOURS </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.hours}} </td>
                                   </ng-container>
                           
                           
@@ -318,35 +759,35 @@
             
                       
             
-                      <table mat-table [dataSource]="dataSource1"  class="mat-elevation-z8" matSort>
+                      <table mat-table [dataSource]="e_std_9_dataSource"  class="mat-elevation-z8" matSort>
             
             
-                          <ng-container matColumnDef="total_batches">
+                          <ng-container matColumnDef="batch_name">
                               <th mat-header-cell *matHeaderCellDef> BATCHES </th>
-                              <td mat-cell *matCellDef="let element">  {{element.total_batches}} </td>
+                              <td mat-cell *matCellDef="let element">  {{element.batch_name}} </td>
                             </ng-container>
                       
                     
                       <!-- Position Column -->
                       <ng-container matColumnDef="exam_date">
                           <th mat-header-cell *matHeaderCellDef> EXAM DATE </th>
-                          <td mat-cell *matCellDef="let element"> {{element.exam_date}} </td>
+                          <td mat-cell *matCellDef="let element"> {{element.exam_date| date:"dd/MM/yyyy"}} </td>
                         </ng-container>
                  
                         <ng-container matColumnDef="subject_name">
                             <th mat-header-cell *matHeaderCellDef> SUBJECT NAME </th>
                             <td mat-cell *matCellDef="let element"> {{element.subject_name}} </td>
                           </ng-container>
-                          <ng-container matColumnDef="exam_timings">
-                              <th mat-header-cell *matHeaderCellDef> EXAM TIMINGS </th>
-                              <td mat-cell *matCellDef="let element"> {{element.exam_timings}} </td>
+                          <ng-container matColumnDef="hours">
+                              <th mat-header-cell *matHeaderCellDef> HOURS </th>
+                              <td mat-cell *matCellDef="let element"> {{element.hours}} </td>
                             </ng-container>
                     
                     
                     
                     
-                            <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
-                            <tr mat-row *matRowDef="let row; columns: displayedColumns1;"  ></tr>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"  ></tr>
       
                           </table>
                           </mat-expansion-panel>
@@ -373,35 +814,35 @@
       
                 
       
-                <table mat-table [dataSource]="dataSource2"  class="mat-elevation-z8" matSort>
+                <table mat-table [dataSource]="e_std_10_dataSource"  class="mat-elevation-z8" matSort>
       
       
-                    <ng-container matColumnDef="total_batches">
-                        <th mat-header-cell *matHeaderCellDef> BATCHES </th>
-                        <td mat-cell *matCellDef="let element">  {{element.total_batches}} </td>
+                    <ng-container matColumnDef="batch_name">
+                        <th mat-header-cell *matHeaderCellDef> batch name </th>
+                        <td mat-cell *matCellDef="let element">  {{element.batch_name}} </td>
                       </ng-container>
                 
               
                 <!-- Position Column -->
                 <ng-container matColumnDef="exam_date">
                     <th mat-header-cell *matHeaderCellDef> EXAM DATE </th>
-                    <td mat-cell *matCellDef="let element"> {{element.exam_date}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.exam_date| date:"dd/MM/yyyy"}} </td>
                   </ng-container>
            
                   <ng-container matColumnDef="subject_name">
                       <th mat-header-cell *matHeaderCellDef> SUBJECT NAME </th>
                       <td mat-cell *matCellDef="let element"> {{element.subject_name}} </td>
                     </ng-container>
-                    <ng-container matColumnDef="exam_timings">
-                        <th mat-header-cell *matHeaderCellDef> EXAM TIMINGS </th>
-                        <td mat-cell *matCellDef="let element"> {{element.exam_timings}} </td>
+                    <ng-container matColumnDef="hours">
+                        <th mat-header-cell *matHeaderCellDef> hours </th>
+                        <td mat-cell *matCellDef="let element"> {{element.hours}} </td>
                       </ng-container>
               
               
               
               
-                      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
-                      <tr mat-row *matRowDef="let row; columns: displayedColumns2;"  ></tr>
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"  ></tr>
 
                     </table>
                     </mat-expansion-panel>
@@ -411,6 +852,131 @@
   
         
 </div>
+
+
+
+
+
+
+<div>
+    <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+             11 PANEL
+            </mat-panel-title>
+            <mat-panel-description>
+             VIEW DESCRIPTION
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+         
+
+          
+
+          <table mat-table [dataSource]="e_std_11_dataSource"  class="mat-elevation-z8" matSort>
+
+
+              <ng-container matColumnDef="batch_name">
+                  <th mat-header-cell *matHeaderCellDef> batch name </th>
+                  <td mat-cell *matCellDef="let element">  {{element.batch_name}} </td>
+                </ng-container>
+          
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="exam_date">
+              <th mat-header-cell *matHeaderCellDef> EXAM DATE </th>
+              <td mat-cell *matCellDef="let element"> {{element.exam_date| date:"dd/MM/yyyy"}} </td>
+            </ng-container>
+     
+            <ng-container matColumnDef="subject_name">
+                <th mat-header-cell *matHeaderCellDef> SUBJECT NAME </th>
+                <td mat-cell *matCellDef="let element"> {{element.subject_name}} </td>
+              </ng-container>
+              <ng-container matColumnDef="hours">
+                  <th mat-header-cell *matHeaderCellDef> hours </th>
+                  <td mat-cell *matCellDef="let element"> {{element.hours}} </td>
+                </ng-container>
+        
+        
+        
+        
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"  ></tr>
+
+              </table>
+              </mat-expansion-panel>
+
+</mat-accordion>
+
+
+  
+</div>
+
+
+
+
+
+
+<div>
+    <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+             12 PANEL
+            </mat-panel-title>
+            <mat-panel-description>
+             VIEW DESCRIPTION
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+         
+
+          
+
+          <table mat-table [dataSource]="e_std_12_dataSource"  class="mat-elevation-z8" matSort>
+
+
+              <ng-container matColumnDef="batch_name">
+                  <th mat-header-cell *matHeaderCellDef> batch name </th>
+                  <td mat-cell *matCellDef="let element">  {{element.batch_name}} </td>
+                </ng-container>
+          
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="exam_date">
+              <th mat-header-cell *matHeaderCellDef> EXAM DATE </th>
+              <td mat-cell *matCellDef="let element"> {{element.exam_date| date:"dd/MM/yyyy"}} </td>
+            </ng-container>
+     
+            <ng-container matColumnDef="subject_name">
+                <th mat-header-cell *matHeaderCellDef> SUBJECT NAME </th>
+                <td mat-cell *matCellDef="let element"> {{element.subject_name}} </td>
+              </ng-container>
+              <ng-container matColumnDef="hours">
+                  <th mat-header-cell *matHeaderCellDef> hours </th>
+                  <td mat-cell *matCellDef="let element"> {{element.hours}} </td>
+                </ng-container>
+        
+        
+        
+        
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"  ></tr>
+
+              </table>
+              </mat-expansion-panel>
+
+</mat-accordion>
+
+
+  
+</div>
+
+
+
+
+
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
@@ -420,7 +986,7 @@
   <div class="grid-container" style="margin-top:-500px;">
 
       <mat-grid-list cols="1" rowHeight="450px">
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-grid-tile style="margin-top:-780px;" [colspan]="1" [rowspan]="1">
           <mat-card class="dashboard-card">
             <mat-card-header>
               <mat-card-title>
@@ -453,11 +1019,11 @@
              
                     <ng-container matColumnDef="pending_fees">
                         <th mat-header-cell *matHeaderCellDef> PENDING FEES </th>
-                        <td mat-cell *matCellDef="let element"> {{element.pending_fees}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.remaining_fees}} </td>
                       </ng-container>
                       <ng-container matColumnDef="paid_fees">
                           <th mat-header-cell *matHeaderCellDef> PAID FEES </th>
-                          <td mat-cell *matCellDef="let element"> {{element.paid_fees}} </td>
+                          <td mat-cell *matCellDef="let element"> {{element.paid_amount}} </td>
                         </ng-container>
                 
                 
@@ -477,4 +1043,4 @@
     
     
     </div> 
-    
+  <!-- </div> -->

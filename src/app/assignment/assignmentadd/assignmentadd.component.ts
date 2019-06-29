@@ -7,6 +7,7 @@ import { subject_class } from 'src/app/allclasses/subject_class';
 import { batchstandard_class } from 'src/app/allclasses/batchstandard_class';
 import { AssignmentService } from 'src/app/allservices/assignment.service';
 import { Router } from '@angular/router';
+import { DailyworkService } from 'src/app/allservices/dailywork.service';
 
 @Component({
   selector: 'app-assignmentadd',
@@ -18,10 +19,12 @@ export class AssignmentaddComponent implements OnInit {
   batch_name:string;
   title:string;
   image:string;
+ // selectedsubject:batchstandardsubject_class;
   selectedFile:File=null;
   selected:batchstandardsubject_class;
   selectedstandard:batchstandardsubject_class;
   selectedsubject:batchstandardsubject_class;
+  arr2:subject_class[]=[];
   arr_assignment:assignment[]=[];
   arr_standardchange:batch_class[]=[];
   arr_batchchange:batch_class[]=[];
@@ -31,7 +34,7 @@ export class AssignmentaddComponent implements OnInit {
   arr_batchstandard:batchstandard_class[]=[];
   fk_standard_id:number;
   i:number;
-  constructor(private _ser:AssignmentService,private _route:Router) { }
+  constructor(private _ser:AssignmentService,private _route:Router,private _ser2:DailyworkService) { }
   onChange(value)
   {
     this.selectedFile=<File>value.target.files[0];
@@ -45,6 +48,14 @@ export class AssignmentaddComponent implements OnInit {
         console.log(data);
       }
     );
+  this._ser2.getSubjectByStandard(this.selectedstandard).subscribe(
+    
+    (data:any[])=>{
+      console.log(this.selectedstandard);
+      this.arr2=data;
+      console.log(data);
+    }
+  );
 
   }
 
@@ -76,18 +87,18 @@ export class AssignmentaddComponent implements OnInit {
 
     fd.set('image',this.selectedFile,this.selectedFile.name);
 
-    fd.set( 'fk_subject_id',this.selectedsubject.subject_id.toString());
+    fd.set( 'fk_subject_id',this.selectedsubject.toString());
 
     console.log(fd);
     this._ser.addAssignment(fd).subscribe(
       (data:any)=>{
         console.log(data);
 
-
+        this._route.navigate(['../menu/assignment']);
       }
     );
   }
-  this._route.navigate(['../menu/assignment']);
+ 
     }
 
 

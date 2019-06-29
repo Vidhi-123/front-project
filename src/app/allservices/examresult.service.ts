@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { examresult } from 'src/app/allclasses/examresult_class';
+import { url } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExamresultService {
-public examresult_url:string='http://localhost:3000/exam_result/';
-public examresultmergedata_url:string='http://localhost:3000/examresultmerge/';
-public examresultadd_url:string='http://localhost:3000/examresultmergedataadd/';
+public examresult_url:string=url.endPoint+'exam_result/';
+public examresultmergedata_url:string=url.endPoint+'examresultmerge/';
+public examresultadd_url:string=url.endPoint+'examresultmergedataadd/';
   constructor(public _http:HttpClient) { }
   getAllStudent(){
     return this._http.get(this.examresultadd_url);

@@ -1,58 +1,83 @@
-<h1>UPDATE DAILYWORK
-</h1>
-
-<form (ngSubmit)="onUpdate(f)" #f="ngForm" class="example-form">
-
-  <div class="container">
-    <div class="form-group">
-      <mat-form-field class="example-full-width">
-
-        <input matInput type="text" name="title" id="title" required placeholder="title" [(ngModel)]="title" #title1="ngModel">
-      </mat-form-field>
- </div>
-
-
- <mat-form-field>
-    <mat-select placeholder="standard" name="fk_standard_id" [(ngModel)]="fk_standard_id">
-      <mat-option *ngFor="let item of arrstandard" name="sel" [value]="item.standard_id">
-        {{item.standard_no}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br>
-
-<mat-form-field>
-  <mat-select placeholder="subject" name="fk_subject_id" [(ngModel)]="fk_subject_id">
-      <mat-option *ngFor="let item of arrsubject" name="sel" [value]="item.subject_id">
-        {{item.subject_name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-<br>
-  <mat-form-field>
-      <mat-select placeholder="batch" name="fk_batch_id" [(ngModel)]="fk_batch_id">
-          <mat-option *ngFor="let item of arrbatch" name="sel" [value]="item.batch_id">
-            {{item.batch_name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-<br>
 
 
 
 
-<div class="row">
-  <div class="col-md-6">
-    <button class="btn btn-lg btn-primary form-control" type="submit">SAVE</button>
+
+
+
+
+
+
+
+
+
+
+ <div class="container">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-warning">
+                <h4 class="card-title">UPDATE DAILYWORK</h4>
+                
+              </div>
+              <div class="card-body">
+               
+                <form class="example-form" (ngSubmit)="onUpdate(f)" #f="ngForm">
+                  
+                    <mat-form-field class="example-full-width">
+
+                        <input matInput type="text" name="title" id="title" required placeholder="title" [(ngModel)]="title" #title1="ngModel">
+                      </mat-form-field>
+                
+                <br>
+                
+                 <mat-form-field>
+                    <mat-select placeholder="standard" name="fk_standard_id" [(ngModel)]="fk_standard_id">
+                      <mat-option *ngFor="let item of arrstandard" name="sel" [value]="item.standard_id">
+                        {{item.standard_no}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <br>
+                
+                <mat-form-field>
+                  <mat-select placeholder="subject" name="fk_subject_id" [(ngModel)]="fk_subject_id">
+                      <mat-option *ngFor="let item of arrsubject" name="sel" [value]="item.subject_id">
+                        {{item.subject_name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                <br>
+                  <mat-form-field>
+                      <mat-select placeholder="batch" name="fk_batch_id" [(ngModel)]="fk_batch_id">
+                          <mat-option *ngFor="let item of arrbatch" name="sel" [value]="item.batch_id">
+                            {{item.batch_name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                <br>
+                
+                
+                
+                
+                
+                
+                  
+                  <div class="rows">
+                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Update DailyWork</button>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="onBack()">CANCEL</button>
+                    
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-    <button class="btn btn-lg btn-danger form-control" (click)="onBack()">CANCEL</button>
-  </div>
 
-
-</div>
-
-
-<!-- <button  mat-raised-button color="primary" type="submit" style="font-size: 40px;" class="btn btn-default btn-primary"  >SAVE</button>&nbsp;&nbsp;&nbsp;&nbsp;
-<button  mat-button type="button" (click)="onBack()" class="btn btn-default btn-primary">CANCEL</button> -->
 

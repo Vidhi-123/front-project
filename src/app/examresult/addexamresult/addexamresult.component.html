@@ -1,9 +1,20 @@
-<h1>ADD EXAM RESULT
+<!-- <h1>ADD EXAM RESULT
 </h1>
 <form (ngSubmit)="onAdd(f)" #f="ngForm" class="example-form">
 <div class="container">
+    <mat-form-field>
+        <mat-select placeholder="batch" required [(ngModel)]="selectedBatch" name="selectedBatch" #dropdown="ngModel" (selectionChange)="onBatchChange()">
+
+          <mat-option *ngFor="let item of arr_batch" [value]="item">
+            {{item.batch_name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+      </mat-form-field>
+<br>
+<br>
   <mat-form-field>
-    <mat-select placeholder="student" [(ngModel)]="selectedstudent" name="selectedstudent" #dropdown="ngModel" (selectionChange)="onStudentChange()">
+    <mat-select placeholder="student" [(ngModel)]="selectedstudent" name="selectedstudent" #dropdown="ngModel" (selectionChange)="onStudentChange()" [disabled]="selectedBatch==null">
       <mat-option *ngFor="let item of arr_student" [value]="item">
         {{item.student_name}}
       </mat-option>
@@ -25,8 +36,19 @@
 
 <br>
 <br>
+<mat-form-field>
+    <mat-select placeholder="exam date" [(ngModel)]="selectedexam1" name="selectedexam1" #dropdown="ngModel" [disabled]="selectedsubject==null" >
+      <mat-option *ngFor="let item of arr_subject" [value]="item">
+        {{item.exam_date | date}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+  </mat-form-field>
+
+<br>
+<br>
 <mat-form-field class="example-full-width">
-    <input matInput type="number" id="marks_obtained" required placeholder="ENTER THE MARKS" [(ngModel)]="marks_obtained" name="marks_obtained" #marksobtained="ngModel">
+    <input matInput type="number" (keypress)="keyPressText($event)" id="marks_obtained" required placeholder="ENTER THE MARKS" [(ngModel)]="marks_obtained" name="marks_obtained" #marksobtained="ngModel">
     <mat-error *ngIf="marksobtained.hasError('required')">its required</mat-error>
   </mat-form-field>
 <br>
@@ -43,4 +65,110 @@
 
   </div>
 
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="container">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-warning">
+                <h4 class="card-title">ADD EXAM RESULT</h4>
+                
+              </div>
+              <div class="card-body">
+               
+                <form class="example-form" (ngSubmit)="onAdd()" #f="ngForm">
+                  
+                    <mat-form-field>
+                        <mat-select placeholder="batch" required [(ngModel)]="selectedBatch" name="selectedBatch" #dropdown="ngModel" (selectionChange)="onBatchChange()">
+                
+                          <mat-option *ngFor="let item of arr_batch" [value]="item">
+                            {{item.batch_name}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+                      </mat-form-field>
+                <br>
+                <br>
+                  <mat-form-field>
+                    <mat-select placeholder="student" [(ngModel)]="selectedstudent" name="selectedstudent" #dropdown="ngModel" (selectionChange)="onStudentChange()" [disabled]="selectedBatch==null">
+                      <mat-option *ngFor="let item of arr_student" [value]="item">
+                        {{item.student_name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+                  </mat-form-field>
+                
+                <br>
+                <br>
+                
+                  <mat-form-field>
+                    <mat-select placeholder="subject" [(ngModel)]="selectedsubject" name="selectedsubject" #dropdown="ngModel" [disabled]="selectedstudent==null" >
+                      <mat-option *ngFor="let item of arr_subject" [value]="item">
+                        {{item.subject_name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+                  </mat-form-field>
+                
+                <br>
+                <br>
+                <mat-form-field>
+                    <mat-select placeholder="exam date" [(ngModel)]="selectedexam1" name="selectedexam1" #dropdown="ngModel" [disabled]="selectedsubject==null" >
+                      <mat-option *ngFor="let item of arr_subject" [value]="item">
+                        {{item.exam_date | date}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+                  </mat-form-field>
+                
+                <br>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <input matInput type="number" (keypress)="keyPressText($event)" id="marks_obtained" required placeholder="ENTER THE MARKS" [(ngModel)]="marks_obtained" name="marks_obtained" #marksobtained="ngModel">
+                    <mat-error *ngIf="marksobtained.hasError('required')">its required</mat-error>
+                  </mat-form-field>
+                <br>
+                
+                
+                  
+                  <div class="rows">
+                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add Exam Result</button>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="onBack()">CANCEL</button>
+                    
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 

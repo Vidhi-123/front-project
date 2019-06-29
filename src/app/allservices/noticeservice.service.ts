@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { notice } from '../allclasses/notice_class';
 import { noticestdbatch } from '../allclasses/noticestdbatch_class';
+import { url } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoticeserviceService {
-noticeurl:string='http://localhost:3000/notice/';
-multidelnotice:string='http://localhost:3000/multidelnotice';
+noticeurl:string=url.endPoint+'notice/';
+multidelnotice:string=url.endPoint+'multidelnotice';
 deleteAllNotice(item:noticestdbatch[]){
   let body=JSON.stringify(item)
   let _abc=new HttpHeaders().set('Content-Type','application/json')

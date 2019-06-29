@@ -99,6 +99,7 @@ export class BatchComponent implements OnInit {
         this.arrbatch=data;
         console.log(this.arrbatch);
         this.dataSource.data=this.arrbatch;
+        console.log(this.dataSource.data);
       }
     );
   }

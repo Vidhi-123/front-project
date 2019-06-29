@@ -23,6 +23,7 @@ export class ForgetpassComponent implements OnInit {
      (data:any[])=>
 
      {
+       console.log(data);
 
        if(data.length==0)
 
@@ -57,7 +58,7 @@ export class ForgetpassComponent implements OnInit {
 
 
 
-         this._router.navigate(['menu']);
+         this._router.navigate(['/login']);
 
          //this.dialogRef.close();
 
@@ -71,7 +72,12 @@ export class ForgetpassComponent implements OnInit {
 
   }
 
+  onclickcancel()
+  {
+    this._router.navigate(['/login']);
+  }
   ngOnInit() {
+  
   }
 
 }

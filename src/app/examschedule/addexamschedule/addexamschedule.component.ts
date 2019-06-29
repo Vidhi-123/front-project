@@ -29,13 +29,14 @@ export class AddexamscheduleComponent implements OnInit {
   fk_standard_id:number;
   fk_batch_id:number;
   marks:number;
+  arr2:subject_class[]=[];
   hours:number;
   date1:Date;
   date2:Date;
   sc_date:string;
   flag:boolean;
   flag2:number=0;
-  constructor(public recordservice:DailyworkService,public examscheduleservice:ExamscheduleService,public _route:Router) { }
+  constructor(public recordservice:DailyworkService,public examscheduleservice:ExamscheduleService,public _route:Router,private _ser3:DailyworkService) { }
   onBack(){
     this._route.navigate(['../menu/examschedule']);
   }
@@ -48,6 +49,25 @@ export class AddexamscheduleComponent implements OnInit {
       }
     );
 
+    this._ser3.getSubjectByStandard(this.selectedstandard).subscribe(
+      
+      (data:any[])=>{
+        console.log(this.selectedstandard);
+        this.arr2=data;
+        console.log(data);
+      }
+    );
+
+
+  }
+  keyPressText(event:any)
+  {
+    const pattern = /[0-9]/;
+    let inputChar=String.fromCharCode(event.charCode);
+    if(!pattern.test(inputChar))
+    {
+      event.preventDefault();
+    }
   }
   onCheckChange(item)
   {
@@ -64,63 +84,67 @@ export class AddexamscheduleComponent implements OnInit {
 
      onAdd()
      {
-        this.examscheduleservice.getBatchStdSubjectExam().subscribe(
-         (data:examschedule[])=>
-         {
-           this.exam_schedule_arr=data;
-           for(this.i=0;this.i<this.exam_schedule_arr.length;this.i++)
-           {
-             this.flag=false;
+      //  console.log("hi");
+      //   this.examscheduleservice.getBatchStdSubjectExam().subscribe(
+      //    (data:examschedule[])=>
+      //    {
+      //      this.exam_schedule_arr=data;
+      //      for(this.i=0;this.i<this.exam_schedule_arr.length;this.i++)
+      //      {
+      //        this.flag=false;
 
-             this.flag2=0;
-             this.date1=new Date(this.exam_schedule_arr[this.i].exam_date);
-             this.date2=new Date(this.exam_date);
-              if(this.exam_schedule_arr[this.i].fk_batch_id==this.selected_batch.batch_id)
-             {
-               this.flag2=1;
-             }
-             if(this.flag2==1)
-             {
-               if(this.date1.toDateString()==this.date2.toDateString())
-               {
-                 this.flag=true;
-                  console.log(this.flag2);
-                 break;
-               }
-             }
+      //        this.flag2=0;
+      //        this.date1=new Date(this.exam_schedule_arr[this.i].exam_date);
+      //        this.date2=new Date(this.exam_date);
+      //         if(this.exam_schedule_arr[this.i].fk_batch_id==this.selected_batch.batch_id)
+      //        {
+      //          this.flag2=1;
+      //        }
+      //        if(this.flag2==1)
+      //        {
+      //          if(this.date1.toDateString()==this.date2.toDateString())
+      //          {
+      //            this.flag=true;
+      //             console.log(this.flag2);
+      //            break;
+      //          }
+      //        }
 
 
-             console.log(this.flag2);
-           }
-           if(this.flag==false)
-           {
-            this.examscheduleservice.addExamSchedule(new examschedule(0,this.selected_batch.batch_id,this.selectedstandard,this.selectedsubject,this.date2,this.marks,this.hours)).subscribe(
+      //        console.log(this.flag2);
+      //      }
+      //      if(this.flag==false)
+      //      {
+        this.date2=new Date(this.exam_date);
+            this.examscheduleservice.addExamSchedule(new examschedule(0,this.selected_batch.batch_id,this.selectedstandard,this.selectedsubject,new Date(this.date2.getFullYear(),this.date2.getMonth(),this.date2.getDate()+1),this.marks,this.hours)).subscribe(
                (datas:any)=>
                {
                  console.log(datas);
+                 this._route.navigate(['../menu/examschedule']);
                }
              );
+              }
+        //    }
+        //    else
+        //    {
+        //     if(this.flag2==1)
+        //    {
+        //      alert("already added");
+        //    }
 
-           }
-           else
-           {
-            if(this.flag2==1)
-           {
-             alert("already added");
-           }
+        //    else if(this.flag2==1)
+        //    {
+        //      alert("batch is busy");
+        //    }
 
-           else if(this.flag2==1)
-           {
-             alert("batch is busy");
-           }
+        //    }
 
-           }
+        //  }
+    //    );
+    //  }
 
-         }
-       );
-     }
-
-  ngOnInit() {
+  ngOnInit() 
+  {
     this.recordservice.getAllStandard().subscribe(
       (data:any)=>{
         this.arr_standard=data;

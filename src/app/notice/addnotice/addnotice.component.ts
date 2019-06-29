@@ -101,10 +101,11 @@ onAdd()
       (data:any[])=>
       {
         console.log(data);
+        this._route.navigate(['../menu/notice']);
       }
     );
   }
-  this._route.navigate(['../menu/notice']);
+  
 }
 onBack(){
   this._route.navigate(['../menu/notice']);

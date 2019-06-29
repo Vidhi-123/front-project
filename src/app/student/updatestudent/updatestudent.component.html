@@ -1,5 +1,4 @@
-
-<h1>UPDATE STUDENT
+<!-- <h1>UPDATE STUDENT
 </h1>
 
 <form (ngSubmit)="onUpdate(f)" #f="ngForm" class="example-form">
@@ -27,13 +26,13 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-  <input matInput name="joining_Date" [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="joining_date" #joiningDate="ngModel">
+  <input matInput name="joining_Date" [matDatepicker]="picker" placeholder="Choose a joining date" [(ngModel)]="joining_date" #joiningDate="ngModel">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
 <br>
 <mat-form-field>
-  <input matInput name="date_of_birth" [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="date_of_birth" #dob="ngModel">
+  <input matInput name="date_of_birth" [matDatepicker]="picker1" placeholder="Choose a birth date" [(ngModel)]="date_of_birth" #dob="ngModel">
   <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
   <mat-datepicker #picker1></mat-datepicker>
 </mat-form-field>
@@ -62,91 +61,148 @@
           </mat-select>
         </mat-form-field>
 
-<br>
-  <mat-form-field>
-    <mat-select placeholder="maths" [(ngModel)]="maths" name="maths" #m1="ngModel" >
-      <mat-option value="yes">
-      yes
-      </mat-option>
-      <mat-option value="no">
-        no
-        </mat-option>
-    </mat-select>
-    <mat-error *ngIf="m1.hasError('required')">its required</mat-error>
-  </mat-form-field>
-  <br>
-
-
-  <mat-form-field>
-    <mat-select placeholder="science" [(ngModel)]="science" name="science" #sc1="ngModel" >
-      <mat-option value="yes">
-      yes
-      </mat-option>
-      <mat-option value="no">
-        no
-        </mat-option>
-    </mat-select>
-    <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
-  </mat-form-field>
-  <br>
 
 
 
-  <mat-form-field>
-    <mat-select placeholder="english" [(ngModel)]="english" name="english" #eng="ngModel">
-      <mat-option value="yes">
-      yes
-      </mat-option>
-      <mat-option value="no">
-        no
-        </mat-option>
-    </mat-select>
-    <mat-error *ngIf="eng.hasError('required')">its required</mat-error>
-  </mat-form-field>
-  <br>
 
 
 
-  <mat-form-field>
-    <mat-select placeholder="physics" [(ngModel)]="physics" name="physics" #ph="ngModel" >
-      <mat-option value="yes">
-      yes
-      </mat-option>
-      <mat-option value="no">
-        no
-        </mat-option>
-    </mat-select>
-    <mat-error *ngIf="ph.hasError('required')">its required</mat-error>
-  </mat-form-field>
-  <br>
 
 
-  <mat-form-field>
-    <mat-select placeholder="biology" [(ngModel)]="biology" name="bilology" #bg="ngModel">
-      <mat-option value="yes">
-      yes
-      </mat-option>
-      <mat-option value="no">
-        no
-        </mat-option>
-    </mat-select>
-    <mat-error *ngIf="bg.hasError('required')">its required</mat-error>
-  </mat-form-field>
-  <br>
+ -->
 
 
-  <div class="row">
-  <div class="col-md-6">
-    <button class="btn btn-lg btn-primary form-control" type="submit">SAVE</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-warning">
+                <h4 class="card-title">UPDATE STUDENT</h4>
+                
+              </div>
+              <div class="card-body">
+               
+                <form class="example-form" (ngSubmit)="onUpdate(f)" #f="ngForm">
+                  
+                    <mat-form-field class="example-full-width">
+
+                        <input matInput type="text" id="student_name" required placeholder="student name" [(ngModel)]="student_name" name="student_name" #sname="ngModel">
+                        <mat-error *ngIf="sname.hasError('required')">its required</mat-error>
+                    
+                      </mat-form-field>
+                    
+                    
+                    <br>
+                    
+                    
+                    
+                      <mat-form-field class="example-full-width">
+                    
+                        <input matInput type="text" id="student_password" required placeholder="password" [(ngModel)]="student_password" name="student_password" #password="ngModel">
+                        <mat-error *ngIf="password.hasError('required')">its required</mat-error>
+                  
+                      </mat-form-field>
+                      <br>
+
+
+
+
+                                
+                      <mat-form-field class="example-full-width">
+                      
+                        <input matInput type="email" id="parents_email_id" required placeholder="password" [(ngModel)]="parents_email_id" name="parents_email_id" #p1="ngModel">
+                        <mat-error *ngIf="p1.hasError('required')">its required</mat-error>
+                    
+                      </mat-form-field>
+                    
+                    
+                    <br>
+                      
+                      <mat-form-field>
+                      <input matInput name="joining_Date" [matDatepicker]="picker" placeholder="Choose a joining date" [(ngModel)]="joining_date" #joiningDate="ngModel">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                      <input matInput name="date_of_birth" [matDatepicker]="picker1" placeholder="Choose a birth date" [(ngModel)]="date_of_birth" #dob="ngModel">
+                      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                      <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                    <br>
+                    
+                    
+                    
+                    
+                    
+                    <mat-form-field>
+                      <mat-select placeholder="standard" [(ngModel)]="fk_standard_id" name="selectedstandard" #dropdown="ngModel">
+                        <mat-option *ngFor="let item of arr_standard" [value]="item.standard_id">
+                          {{item.standard_no}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+                    </mat-form-field>
+                    <br>
+                    
+                    <br>
+                        <mat-form-field>
+                            <mat-select placeholder="batch" name="fk_batch_id" [(ngModel)]="fk_batch_id">
+                                <mat-option *ngFor="let item of arrbatch" name="sel" [value]="item.batch_id">
+                                  {{item.batch_name}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                    
+                    
+                    
+                    
+                    
+                    
+                  <div class="rows">
+                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Update Student</button>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="onBack()">CANCEL</button>
+                    
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-    <button class="btn btn-lg btn-danger form-control" (click)="onBack()">CANCEL</button>
-  </div>
-</div>
-
-
-
-
-
-
-

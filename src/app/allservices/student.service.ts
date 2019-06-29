@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { student } from '../allclasses/student';
+import { url } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
-  student:string="http://localhost:3000/student/";
-  deletestudent:string="http://localhost:3000/deletestudent/"
-  studentsubject:string="http://localhost:3000/studentsubject/"
-  add_subject:string="http://localhost:3000/subject/"
-  totalstudent:string="http://localhost:3000/totalstudent/";
+  student:string=url.endPoint+"student/";
+  deletestudent:string=url.endPoint+"deletestudent/"
+  studentsubject:string=url.endPoint+"studentsubject/"
+  add_subject:string=url.endPoint+"subject/"
+  totalstudent:string=url.endPoint+"totalstudent/";
+  studentbybatch:string=url.endPoint+'studentbatchdisplay/';
   constructor(private _http:HttpClient) { }
   getStudent(){
     return this._http.get(this.student)
@@ -54,5 +56,8 @@ updateStudent(item:student){
   let body=JSON.stringify(item);
   let head1=new HttpHeaders().set('Content-Type','application/json')
   return this._http.put(this.student+item.student_id,body,{headers:head1});
+}
+getStudentByBatchId(batch_id){
+  return this._http.get(this.studentbybatch+batch_id);
 }
 }

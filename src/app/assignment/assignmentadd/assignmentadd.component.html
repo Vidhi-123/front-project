@@ -1,4 +1,4 @@
-<h1>ADD DAILYWORK
+<!-- <h1>ADD ASSIGNMENT
 </h1>
 
 <form (ngSubmit)="onAdd(f)" #f="ngForm" class="example-form">
@@ -31,7 +31,7 @@
 <br>
   <mat-form-field>
     <mat-select placeholder="SUBJECT" [(ngModel)]="selectedsubject" name="selectedsubject" #dropdown="ngModel">
-      <mat-option *ngFor="let item of arr_subject" [value]="item">
+      <mat-option *ngFor="let item of arr2" [value]="item.subject_id">
         {{item.subject_name}}
       </mat-option>
     </mat-select>
@@ -39,10 +39,10 @@
   </mat-form-field>
 
 <br>
-<div class="form-group">
+
     <h4>PDF:</h4>
     <input  type="file" (change)="onChange($event)">
-  </div>
+
 
 
 
@@ -71,4 +71,109 @@
 
 
   </div>
+ -->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="container">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-warning">
+                <h4 class="card-title">ADD ASSIGNMENT</h4>
+                
+              </div>
+              <div class="card-body">
+                <form class="example-form" (ngSubmit)="onAdd()" #f="ngForm">
+                  
+  
+                    <mat-form-field class="example-full-width">
+
+                        <input matInput type="text" id="title" required placeholder="TITLE" [(ngModel)]="title" name="title" #title1="ngModel">
+                        <mat-error *ngIf="title1.hasError('required')">its required</mat-error>
+                  
+                      </mat-form-field>
+                  
+                  
+                    
+                  
+                  <br>
+                  
+                  
+                  
+                    <mat-form-field>
+                      <mat-select placeholder="STANDARD" [(ngModel)]="selectedstandard" name="selectedstandard" #dropdown="ngModel" (selectionChange)="onStandardChange()">
+                        <mat-option *ngFor="let item of arr_standard" [value]="item.standard_id">
+                          {{item.standard_no}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+                    </mat-form-field>
+                  <br>
+                    <mat-form-field>
+                      <mat-select placeholder="SUBJECT" [(ngModel)]="selectedsubject" name="selectedsubject" #dropdown="ngModel">
+                        <mat-option *ngFor="let item of arr2" [value]="item.subject_id">
+                          {{item.subject_name}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+                    </mat-form-field>
+                  
+                  <br>
+                  
+                      <h4>PDF:</h4>
+                      <input  type="file" (change)="onChange($event)">
+                  
+                  
+                  
+                  
+                  
+                  <br>
+                  <br>
+                   <mat-checkbox  *ngFor="let item of arr_batch" (change)="onCheckChange(item)" >{{item.batch_name}}</mat-checkbox>
+                  
+                  
+                  
+                  
+                  
+                  <br>
+                  
+                  
+                  <div class="rows">
+                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add Assignment</button>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="onBack()">CANCEL</button>
+                    
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -3,15 +3,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { batch_class } from '../allclasses/batch_class';
 import { batchstandard_class } from '../allclasses/batchstandard_class';
-
+import { url } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class BatchServiceService {
-  batch:string='http://localhost:3000/batch/';
-  batch_standard:string='http://localhost:3000/batch_standard/';
-  standard:string='http://localhost:3000/standard/';
-  subject:string= "http://localhost:3000/subject/";
+  batch:string=url.endPoint+'batch/';
+  batch_standard:string=url.endPoint+'batch_standard/';
+  standard:string=url.endPoint+'standard/';
+  subject:string= url.endPoint+"subject/";
   getAllBatch(){
     return this._http.get(this.batch);
   }

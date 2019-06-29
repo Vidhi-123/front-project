@@ -1,8 +1,7 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
       <div class="col-md-12">
-      <!-- <b style="font-size: 50px;margin-left: 520px;font-family: Algerian;">
-        BATCH MANAGEMENT </b> --><h1>ADD BATCH MANAGEMENT</h1>
+      <h1>ADD BATCH MANAGEMENT</h1>
       </div>
     </div>
 <form (ngSubmit)="onAdd(f)" #f="ngForm" class="example-form">
@@ -32,6 +31,7 @@
     <div class="row">
         <div class="col-sm-6">
           <button class="btn btn-lg btn-primary form-control" type="submit">SUBMIT</button>
+          
         </div>
         <div class="col-sm-6">
           <button class="btn btn-lg btn-danger form-control" (click)="onBack()">CANCEL</button>
@@ -42,4 +42,77 @@
   </form>
 
 
+ -->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="container">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-warning">
+                <h4 class="card-title">ADD BATCH</h4>
+                
+              </div>
+              <div class="card-body">
+                <form class="example-form" (ngSubmit)="onAdd()" #f="ngForm">
+                  
+  
+                    <mat-form-field class="example-full-width">
+
+                        <input matInput type="text" id="batch_name" required placeholder="batch_name" [(ngModel)]="batch_name" name="batch_name" #batchname="ngModel">
+                        <mat-error *ngIf="batchname.hasError('required')">its required</mat-error>
+              
+                      </mat-form-field>
+              
+              
+                    <br>
+                    <mat-form-field>
+                      <mat-select placeholder="standard" required [(ngModel)]="selected" name="selected" #dropdown="ngModel">
+              
+                        <mat-option *ngFor="let item of arr1" [value]="item">
+                          {{item.standard_no}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+                    </mat-form-field>
+              
+                  
+                  <div class="rows">
+                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add Batch</button>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="onBack()">CANCEL</button>
+                    
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

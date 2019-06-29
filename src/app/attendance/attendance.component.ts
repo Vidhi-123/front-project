@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { batch_atten_stu_standard } from '../allclasses/batch_atten_stu_standard';
 import { AttendanceService } from '../allservices/attendance.service';
 import { BatchServiceService } from '../allservices/batch-service.service';
 import { batch_class } from '../allclasses/batch_class';
 import { Router } from '@angular/router';
+import { MatTableDataSource, MatSelect, MatSort, MatPaginator } from '@angular/material';
 
 export class att
 {
@@ -36,13 +37,23 @@ flag1:boolean=false;
 date1:Date[]=[];
 date2:Date;
 att_tbl:att[]=[];
-
+dataSource = new MatTableDataSource();
+@ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort:MatSort;
   constructor(private _ser1:AttendanceService,private _ser2:BatchServiceService,private _route:Router) { }
+  displayedColumns: string[] = ['attendance_date','student_name', 'attendance_status'];
+  onAttendance()
+  {
+    this._route.navigate(['../menu/stumail']);
+  }
 onBatchChange(batch_id){
   this._ser1.getAttendanceByBatchId(batch_id).subscribe(
     (data:batch_atten_stu_standard[])=>{
+      console.log(data);
       this.arr=data;
+      this.dataSource.data=this.arr;
       console.log(this.arr);
+      console.log(this.dataSource.data);
     }
   )
   // this.student_name=[];
@@ -127,6 +138,7 @@ onAdd(){
     this._ser2.getAllBatch().subscribe(
       (data:any)=>{
         this.mergearr=data;
+        
       }
     );
 

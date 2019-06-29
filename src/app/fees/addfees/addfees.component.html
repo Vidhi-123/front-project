@@ -1,11 +1,28 @@
-<h1>ADD FEES
-</h1>
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+    <h1>ADD FEES details</h1>
+      </div>
+    </div>
 
 <form (ngSubmit)="onAdd(f)" #f="ngForm" class="example-form">
 
+
+  
+    <mat-form-field>
+        <mat-select placeholder="batch" required [(ngModel)]="selectedbatch" name="selectedbatch" #dropdown="ngModel" (selectionChange)="onBatchChange()">
+
+          <mat-option *ngFor="let item of arr_batch" [value]="item">
+            {{item.batch_name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+      </mat-form-field>
+<br>
+
 <mat-form-field>
   <mat-select placeholder="select a student" [(ngModel)]="selectedstudent" name="selectedstudent" #dropdown="ngModel" (selectionChange)="onFeesChange()">
-    <mat-option *ngFor="let item of arr_student" [value]="item.student_id">
+    <mat-option *ngFor="let item of fees_arr" [value]="item.student_id">
       {{item.student_name}}
     </mat-option>
   </mat-select>
@@ -17,7 +34,7 @@
   <div class="form-group">
     <mat-form-field class="example-full-width">
 
-      <input matInput type="text" id="amount" required placeholder="amount" [(ngModel)]="amount" name="amount" #amt="ngModel">
+      <input matInput (keypress)="keyPressText($event)" type="text" id="amount" required placeholder="amount" [(ngModel)]="amount" name="amount" #amt="ngModel">
       <mat-error *ngIf="amt.hasError('required')">its required</mat-error>
 
     </mat-form-field>
@@ -45,4 +62,103 @@
     </div>
 
 
-  </div>
+  </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container">
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-warning">
+                  <h4 class="card-title">FEES ADD DETAILS</h4>
+                  
+                </div>
+                <div class="card-body">
+                  <form class="example-form" (ngSubmit)="onAdd()" #f="ngForm">
+                      <mat-form-field>
+                          <mat-select placeholder="batch" required [(ngModel)]="selectedbatch" name="selectedbatch" #dropdown="ngModel" (selectionChange)="onBatchChange()">
+                  
+                            <mat-option *ngFor="let item of arr_batch" [value]="item">
+                              {{item.batch_name}}
+                            </mat-option>
+                          </mat-select>
+                          <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+                        </mat-form-field>
+                  <br>
+                  
+                  <mat-form-field>
+                    <mat-select placeholder="select a student" [(ngModel)]="selectedstudent" name="selectedstudent" #dropdown="ngModel" (selectionChange)="onFeesChange()">
+                      <mat-option *ngFor="let item of fees_arr" [value]="item.student_id">
+                        {{item.student_name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+                  </mat-form-field>
+                  <br>
+                  
+             
+                      <mat-form-field class="example-full-width">
+                  
+                        <input matInput (keypress)="keyPressText($event)" type="text" id="amount" required placeholder="amount" [(ngModel)]="amount" name="amount" #amt="ngModel">
+                        <mat-error *ngIf="amt.hasError('required')">its required</mat-error>
+                  
+                      </mat-form-field>
+                      <h5 style="color: red;" *ngIf="rem_fees>0">*{{rem_fees}} Remaining</h5>
+                  <br>
+                  <mat-form-field>
+                    <mat-select placeholder="mode" [(ngModel)]="mode" name="mode" #m1="ngModel" >
+                      <mat-option value="cash">
+                      cash
+                      </mat-option>
+                      <mat-option value="cheque">
+                        cheque
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="m1.hasError('required')">its required</mat-error>
+                  </mat-form-field>
+                  <br>
+                  
+                    
+                    <div class="rows">
+                      <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add Fees Details</button>
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      <button mat-raised-button color="warn" (click)="onBack()">CANCEL</button>
+                      
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  

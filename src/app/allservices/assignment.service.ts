@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { assignment } from '../allclasses/assignment';
 import { batchstandardsubjectassign } from '../allclasses/batchstandardsubjectassign';
+import { url } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AssignmentService {
-  assignment:string='http://localhost:3000/assignment/';
-  standard:string="http://localhost:3000/standard/";
-  subject:string= "http://localhost:3000/subject/";
-  dailyworkadd:string='http://localhost:3000/dailyworkadd/';
-  assignmentupdate='http://localhost:3000/assignmentupdate/';
+  assignment:string=url.endPoint+'assignment/';
+  standard:string=url.endPoint+"standard/";
+  subject:string= url.endPoint+"subject/";
+  dailyworkadd:string=url.endPoint+'dailyworkadd/';
+  assignmentupdate=url.endPoint+'assignmentupdate/';
   constructor(private _http:HttpClient) { }
   getAllAssignment(){
     return this._http.get(this.assignment);

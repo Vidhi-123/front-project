@@ -20,6 +20,7 @@ export class AddstudentComponent implements OnInit {
   student_password:string;
   joining_date:Date;
   date_of_birth:Date;
+  parents_email_id:string;
 student_id:number;
   selectedstandard:number;
   arr_standard:standard_class[]=[];
@@ -52,6 +53,15 @@ this._stuser.getSubjectByStandard(this.selectedstandard).subscribe(
 )
 
   }
+  keyPressText(event:any)
+  {
+    const pattern = /[A-Z\a-z\ ]/;
+    let inputChar=String.fromCharCode(event.charCode);
+    if(!pattern.test(inputChar))
+    {
+      event.preventDefault();
+    }
+  }
 
   onCheckChange(item)
   {
@@ -69,7 +79,7 @@ this._stuser.getSubjectByStandard(this.selectedstandard).subscribe(
     this.date1=new Date(this.joining_date);
     this.date2=new Date(this.date_of_birth);
     console.log(this.student_name);
-    this._studentservice.addStudent(new student(0,this.student_password,this.student_name,this.date2,this.date1,this.selected_batch.batch_id,this.selectedstandard)).subscribe(
+    this._studentservice.addStudent(new student(0,this.student_password,this.parents_email_id,this.student_name,new Date(this.date2.getFullYear(),this.date2.getMonth(),this.date2.getDate()+1),new Date(this.date1.getFullYear(),this.date1.getMonth(),this.date1.getDate()+1),this.selected_batch.batch_id,this.selectedstandard)).subscribe(
       (data:any)=>{
         console.log(data);
           this.student_id=data.insertId;
@@ -80,12 +90,13 @@ this._stuser.getSubjectByStandard(this.selectedstandard).subscribe(
             (data:any)=>
             {
               console.log(data);
+              this._route.navigate(['../menu/student']);
             }
           );
         }
       }
     )
-    this._route.navigate(['../menu/student']);
+   
   }
   onBack(){
     this._route.navigate(['../menu/student']);

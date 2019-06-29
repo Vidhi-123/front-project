@@ -3,7 +3,7 @@
   </table> -->
 
 
-  <table border="3" >
+  <!-- <table border="3" >
       <th>date</th>
 
       <th>amount</th>
@@ -16,5 +16,49 @@
 
 
       </tr>
-      </table>
+      </table> -->
+      <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+            <!-- <b style="font-size: 50px;margin-left: 520px;font-family: Algerian;">
+              BATCH MANAGEMENT </b> --><h1>FEES MANAGEMENT DETAILS</h1>
+            </div>
+          </div>
+      <div>
+        <table mat-table [dataSource]="feessource"  class="mat-elevation-z8">
+    
+    
+            <ng-container matColumnDef="fees_date">
+                <th mat-header-cell *matHeaderCellDef> DATE </th>
+                <td mat-cell *matCellDef="let element">  {{element.fees_date | date:"dd/MM/yyyy"}} </td>
+              </ng-container>
+        
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef> AMOUNT </th>
+            <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+          </ng-container>
+    
+              
+      
+      
+      
+      
+              <tr mat-header-row *matHeaderRowDef="displayedfees"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedfees;"  ></tr>
+    
+            </table>
+      
+    
+    </div>
+    <br>
+    <br>
+    <div class="col-sm-2">
+      <button class="btn btn-lg btn-danger form-control" (click)="onBack()">BACK</button>
+    </div>
+    
+    
+    
+    
 

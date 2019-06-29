@@ -9,6 +9,7 @@ export class ForgetpassService {
 
   url:string="http://localhost:3000/nodemail/";
 url1:string="http://localhost:3000/faculty/";
+url2:string="http://localhost:3000/student_id/"
   constructor(private _http:HttpClient) { }
   changePassword(item:any){
     let _abc=new HttpHeaders().set('Content-Type','application/json');
@@ -25,5 +26,9 @@ url1:string="http://localhost:3000/faculty/";
   }
   getfacultyByemail(faculty_id){
     return this._http.get(this.url1+faculty_id);
+  }
+  getstudentbyemailid(parents_email_id)
+  {
+    return this._http.get(this.url2+parents_email_id);
   }
 }

@@ -13,7 +13,7 @@ export class FeesComponent implements OnInit {
 
   constructor(private _ser1:FeesService,private _route:Router) { }
   arrfees:fees[]=[];
-  displayedColumns: string[] = ['select','student_name','batch_name', 'total_fees'];
+  displayedColumns: string[] = ['student_name','batch_name', 'total_fees'];
   dataSource = new MatTableDataSource();
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -26,6 +26,10 @@ export class FeesComponent implements OnInit {
   }
   onFeesRemaining(){
     this._route.navigate(['../menu/fees_remaining']);
+  }
+  onAdd1()
+  {
+    this._route.navigate(['../menu/feesadd']);
   }
 
   ngOnInit() {

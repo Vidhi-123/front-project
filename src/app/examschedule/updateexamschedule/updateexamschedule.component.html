@@ -1,4 +1,4 @@
-<h1>UPDATE EXAM SCHEDULE
+<!-- <h1>UPDATE EXAM SCHEDULE
 </h1>
 <form (ngSubmit)="onUpdate(f)" #f="ngForm" class="example-form">
 <div class="container">
@@ -59,4 +59,107 @@
 
   </div>
 
+ -->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="container">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-warning">
+                <h4 class="card-title">UPDATE EXAM SCHEDULE</h4>
+                
+              </div>
+              <div class="card-body">
+               
+                <form class="example-form" (ngSubmit)="onUpdate(f)" #f="ngForm">
+                  
+                    <mat-form-field>
+                        <input matInput name="exam_date" [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="exam_date" #scheduleDate="ngModel">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                      <br>
+                      <br>
+                <mat-form-field>
+                    <mat-select placeholder="standard" [(ngModel)]="fk_standard_id" name="fk_standard_id" #dropdown="ngModel" >
+                      <mat-option *ngFor="let item of arr_standard" [value]="item.standard_id">
+                        {{item.standard_no}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+                  </mat-form-field>
+                <br>
+                  <mat-form-field>
+                    <mat-select placeholder="subject" [(ngModel)]="fk_subject_id" name="fk_subject_id" #dropdown="ngModel">
+                      <mat-option *ngFor="let item of arr_subject" [value]="item.subject_id">
+                        {{item.subject_name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+                  </mat-form-field>
+                
+                <br>
+                <br>
+                <mat-form-field>
+                  <mat-select placeholder="batch" name="fk_batch_id" [(ngModel)]="fk_batch_id">
+                      <mat-option *ngFor="let item of arr_batch" name="sel" [value]="item.batch_id">
+                        {{item.batch_name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <input matInput type="number" id="marks" required placeholder="ENTER THE MARKS" [(ngModel)]="marks" name="marks" #mark="ngModel">
+                    <mat-error *ngIf="mark.hasError('required')">its required</mat-error>
+                  </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                  <input matInput type="number" id="hours" required placeholder="ENTER THE HOURS" [(ngModel)]="hours" name="hours" #hour="ngModel">
+                  <mat-error *ngIf="hour.hasError('required')">its required</mat-error>
+                </mat-form-field>
+                <br>
+                
+                    
+                    
+                  <div class="rows">
+                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Update Exam Schedule</button>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="onBack()">CANCEL</button>
+                    
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

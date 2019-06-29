@@ -75,7 +75,7 @@ export class UpdatedailyComponent implements OnInit {
 
 }
   onBack(){
-    this._route.navigate(['/batch'])
+    this._route.navigate(['../menu/alldaily'])
   }
 
   constructor(private _ser:DailyworkService,private _ser1:BatchServiceService,public _route:Router,public _actroute:ActivatedRoute) { }

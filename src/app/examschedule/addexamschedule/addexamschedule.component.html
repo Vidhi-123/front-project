@@ -1,4 +1,4 @@
-<h1>ADD EXAM SCHEDULE
+<!-- <h1>ADD EXAM SCHEDULE
 </h1>
 <form (ngSubmit)="onAdd(f)" #f="ngForm" class="example-form">
 <div class="container">
@@ -20,7 +20,7 @@
 <br>
   <mat-form-field>
     <mat-select placeholder="subject" [(ngModel)]="selectedsubject" name="selectedsubject" #dropdown="ngModel">
-      <mat-option *ngFor="let item of arr_subject" [value]="item.subject_id">
+      <mat-option *ngFor="let item of arr2" [value]="item.subject_id">
         {{item.subject_name}}
       </mat-option>
     </mat-select>
@@ -30,12 +30,12 @@
 <br>
 <br>
 <mat-form-field class="example-full-width">
-    <input matInput type="number" id="marks" required placeholder="ENTER THE MARKS" [(ngModel)]="marks" name="marks" #mark="ngModel">
+    <input matInput (keypress)="keyPressText($event)" type="text" id="marks" required placeholder="ENTER THE MARKS" [(ngModel)]="marks" name="marks" #mark="ngModel">
     <mat-error *ngIf="mark.hasError('required')">its required</mat-error>
   </mat-form-field>
 <br>
 <mat-form-field class="example-full-width">
-  <input matInput type="number" id="hours" required placeholder="ENTER THE HOURS" [(ngModel)]="hours" name="hours" #hour="ngModel">
+  <input matInput (keypress)="keyPressText($event)" type="text" id="hours" required placeholder="ENTER THE HOURS" [(ngModel)]="hours" name="hours" #hour="ngModel">
   <mat-error *ngIf="hour.hasError('required')">its required</mat-error>
 </mat-form-field>
 <br>
@@ -54,4 +54,104 @@
 
   </div>
 
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="container">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-warning">
+                <h4 class="card-title">ADD EXAM SCHEDULE</h4>
+                
+              </div>
+              <div class="card-body">
+               
+                <form class="example-form" (ngSubmit)="onAdd()" #f="ngForm">
+                  
+                    <mat-form-field>
+              <input matInput name="exam_date" [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="exam_date" #scheduleDate="ngModel">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <br>
+<mat-form-field>
+    <mat-select placeholder="standard" [(ngModel)]="selectedstandard" name="selectedstandard" #dropdown="ngModel" (selectionChange)="onStandardChange()">
+      <mat-option *ngFor="let item of arr_standard" [value]="item.standard_id">
+        {{item.standard_no}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+  </mat-form-field>
+<br>
+  <mat-form-field>
+    <mat-select placeholder="subject" [(ngModel)]="selectedsubject" name="selectedsubject" #dropdown="ngModel">
+      <mat-option *ngFor="let item of arr2" [value]="item.subject_id">
+        {{item.subject_name}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+  </mat-form-field>
+
+<br>
+<br>
+<mat-form-field class="example-full-width">
+    <input matInput (keypress)="keyPressText($event)" type="text" id="marks" required placeholder="ENTER THE MARKS" [(ngModel)]="marks" name="marks" #mark="ngModel">
+    <mat-error *ngIf="mark.hasError('required')">its required</mat-error>
+  </mat-form-field>
+<br>
+<mat-form-field class="example-full-width">
+  <input matInput (keypress)="keyPressText($event)" type="text" id="hours" required placeholder="ENTER THE HOURS" [(ngModel)]="hours" name="hours" #hour="ngModel">
+  <mat-error *ngIf="hour.hasError('required')">its required</mat-error>
+</mat-form-field>
+<br>
+<mat-radio-group class="example-radio-group" [(ngModel)]="selected_batch" name="selected_batch" #sel1="ngModel">
+    <mat-radio-button class="example-radio-button" *ngFor="let item of arr_batch" [value]="item">{{item.batch_name}}</mat-radio-button>
+    </mat-radio-group>
+<br>
+                  
+                  <div class="rows">
+                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add Exam Schedule</button>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="onBack()">CANCEL</button>
+                    
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 

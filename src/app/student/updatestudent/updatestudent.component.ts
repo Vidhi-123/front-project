@@ -30,6 +30,7 @@ export class UpdatestudentComponent implements OnInit {
   student_id:number;
   date1:Date;
   date2:Date;
+  parents_email_id:string
 
 
   constructor(private _batch:BatchServiceService,private _student:StudentService,private _route:Router,private _actroute:ActivatedRoute) { }
@@ -37,12 +38,12 @@ export class UpdatestudentComponent implements OnInit {
     this.date1=new Date(this.joining_date);
     this.date2=new Date(this.date_of_birth);
     //console.log(this.batch_id,this.fk_standard_id);
-    this._student.updateStudent(new student(this.student_id,this.student_password,this.student_name,this.date2,this.date1,this.fk_batch_id,this.fk_standard_id)).subscribe(
+    this._student.updateStudent(new student(this.student_id,this.student_password,this.parents_email_id,this.student_name,this.date2,this.date1,this.fk_batch_id,this.fk_standard_id)).subscribe(
 
       (data:any)=>{
         //console.log(this.batch_id,this.fk_standard_id);
         console.log(data);
-        this._route.navigate(['/student']);
+        this._route.navigate(['../menu/student']);
       }
     )
   }

@@ -12,6 +12,7 @@ import { schedule } from 'src/app/allclasses/schedule';
 import { Scheduler } from 'rxjs';
 import { and } from '@angular/router/src/utils/collection';
 import { Router } from '@angular/router';
+import { getDate } from 'date-fns';
 
 @Component({
   selector: 'app-addschedule',
@@ -40,14 +41,14 @@ fk_faculty_id:string;
 date1:Date;
 date2:Date;
 sc_date:string;
-
+arr2:subject_class[]=[];
 sche:schedule[]=[];
 
 flag:boolean=false;
 flag1:number=0;
 flag2:number=0;
 faculty_name:string
-  constructor(private _ser1:ScheduleService,private _ser2:FacultyService,private _ser3:BatchServiceService,private _ser4:DailyworkService,public _route:Router) { }
+  constructor(private _ser1:ScheduleService,private  _ser5:DailyworkService,private _ser2:FacultyService,private _ser3:BatchServiceService,private _ser4:DailyworkService,public _route:Router) { }
   onStandardChange(){
     console.log("hi");
     this._ser4.getbatchbystandardID(this.selectedstandard).subscribe(
@@ -57,6 +58,16 @@ faculty_name:string
       }
     );
 
+    this._ser5.getSubjectByStandard(this.selectedstandard).subscribe(
+    
+      (data:any[])=>{
+        console.log(this.selectedstandard);
+        this.arr2=data;
+        console.log(data);
+      }
+    );
+  
+
   }
   onAdd()
   {
@@ -64,13 +75,18 @@ faculty_name:string
       (data:schedule[])=>
       {
         this.sche=data;
+        
+          this.date2=new Date(this.schedule_date);
+          
         for(this.i=0;this.i<this.sche.length;this.i++)
         {
           this.flag=false;
           this.flag1=0;
           this.flag2=0;
           this.date1=new Date(this.sche[this.i].schedule_date);
-          this.date2=new Date(this.schedule_date);
+        
+          console.log(this.date1);
+          console.log(this.date2);
           if(this.sche[this.i].fk_faculty_id==this.selectedfaculty.faculty_id)
           {
             this.flag1=1;
@@ -87,8 +103,11 @@ faculty_name:string
 
           console.log(this.flag1);
           console.log(this.flag2);
-              break;
+           
+          break;
+              
             }
+            
           }
 
           console.log(this.flag1);
@@ -96,17 +115,25 @@ faculty_name:string
         }
         if(this.flag==false)
         {
+          
+          console.log(this.flag1);
+          console.log(this.flag2);
+          console.log(this.flag);
           console.log(this.date2);
-          this._ser1.addSchedule(new schedule(0,this.selectedsubject,this.selected_batch.batch_id,this.selectedstandard,this.selectedfaculty.faculty_id,this.timings,this.date2)).subscribe(
+          this._ser1.addSchedule(new schedule(0,this.selectedsubject,this.selected_batch.batch_id,this.selectedstandard,this.selectedfaculty.faculty_id,this.timings,new Date(this.date2.getFullYear(),this.date2.getMonth(),this.date2.getDate()+1))).subscribe(
             (datas:any)=>
             {
               console.log(datas);
+              this._route.navigate(['../menu/schedule']);
             }
           );
-          this._route.navigate(['../menu/schedule']);
+         
         }
         else
         {
+          
+          console.log(this.flag1);
+          console.log(this.flag2);
          if(this.flag1==1 && this.flag2==1)
         {
           alert("already added");
@@ -123,7 +150,14 @@ faculty_name:string
         }
 
       }
+      
     );
+
+
+
+
+
+    
   }
   onBack(){
     this._route.navigate(['../menu/schedule']);
@@ -158,15 +192,15 @@ faculty_name:string
         this.arr_faculty=data;
       }
     )
-    this._ser1.getAllScheduleBatchFacultystdsubject().subscribe(
-      (data:any)=>{
-        this.merge_arr=data;
-        console.log(data);
-        console.log(this.merge_arr)
-        this.date1=this.merge_arr[0].schedule_date;
-        console.log(this.date1);
-      }
-    )
+    // this._ser1.getAllScheduleBatchFacultystdsubject().subscribe(
+    //   (data:any)=>{
+    //     this.merge_arr=data;
+    //     console.log(data);
+    //     console.log(this.merge_arr)
+    //     this.date1=this.merge_arr[0].schedule_date;
+    //     console.log(this.date1);
+    //   }
+    // )
 
   }
 

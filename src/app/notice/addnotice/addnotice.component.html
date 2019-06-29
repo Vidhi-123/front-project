@@ -1,4 +1,4 @@
-<h1>ADD NOTICE
+<!-- <h1>ADD NOTICE
   </h1>
 
 <form (ngSubmit)="onAdd()" #f="ngForm" class="example-form">
@@ -36,7 +36,7 @@
 
 
 
-  <!-- <mat-checkbox  *ngFor="let item of arr" (change)="onCheckChange(item)"  >{{item.batch_name}}</mat-checkbox> -->
+  
 
   <h5>STANDARD</h5>
   <mat-checkbox  *ngFor="let item of arr_standard" (change)="onChangeStandard(item)" required name="standard"  >{{item.standard_no}}</mat-checkbox>
@@ -48,13 +48,7 @@
   <mat-checkbox  *ngFor="let item of arr_batch" (change)="onChange(item)"  >{{item.batch_name}}</mat-checkbox>
   <br>
 
-    <!-- <mat-form-field>
-    <mat-select placeholder="standard" name="selected1" [(ngModel)]="fk_standard_id">
-      <mat-option *ngFor="let item of arr1" name="sel" [value]="item.standard_id">
-        {{item.standard_no}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>  -->
+   
 
 
 
@@ -75,8 +69,120 @@
 
 
 
-<!-- </div>
+
 </div>
-</form>  -->
-</div>
-</div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-warning">
+                <h4 class="card-title">ADD NOTICE</h4>
+                
+              </div>
+              <div class="card-body">
+                <form class="example-form" (ngSubmit)="onAdd()" #f="ngForm">
+                  
+  
+                    <mat-form-field class="example-full-width">
+
+                        <input matInput type="text" id="notice_name" required placeholder="notice name" [(ngModel)]="notice_name" name="notice_name" #name="ngModel">
+                        <mat-error *ngIf="name.hasError('required')">its required</mat-error>
+                
+                      </mat-form-field>
+                
+                
+                    
+                <br>
+                
+                
+                
+                    
+                        <mat-form-field class="example-full-width">
+                
+                          <textarea matInput id="notice_desc" required placeholder="notice description" [(ngModel)]="notice_desc" name="notice_desc" #desc="ngModel"></textarea>
+                          <mat-error *ngIf="desc.hasError('required')">its required</mat-error>
+                
+                        </mat-form-field>
+                
+                
+                      
+                
+                
+                
+                
+                
+                
+                
+                  
+                
+                  <h5>STANDARD</h5>
+                  <mat-checkbox  *ngFor="let item of arr_standard" (change)="onChangeStandard(item)" required name="standard"  >{{item.standard_no}}</mat-checkbox>
+                
+                
+                  <br>
+                  <br>
+                  <h5>BATCH</h5>
+                  <mat-checkbox  *ngFor="let item of arr_batch" (change)="onChange(item)"  >{{item.batch_name}}</mat-checkbox>
+                  <br>
+                
+                   
+                
+                
+                
+                
+                <br>
+                
+                
+                
+                  
+                  <div class="rows">
+                    <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add Notice</button>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="onBack()">CANCEL</button>
+                    
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

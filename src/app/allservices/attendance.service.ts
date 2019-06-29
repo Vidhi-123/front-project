@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { attendance } from '../allclasses/attendance';
+import { url } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AttendanceService {
 
-  attendance:string="http://localhost:3000/attendance/"
-  attendance1:string="http://localhost:3000/attendance1/"
-  attendance2:string="http://localhost:3000/attendance2/";
-  adddata:string="http://localhost:3000/addattendance/"
-  addatt:string="http://localhost:3000/attadd/"
+  attendance:string=url.endPoint+"attendance/"
+  attendance1:string=url.endPoint+"attendance1/"
+  attendance2:string=url.endPoint+"attendance2/";
+  adddata:string=url.endPoint+"addattendance/"
+  addatt:string=url.endPoint+"attadd/"
 
   constructor(private _http:HttpClient) { }
   getAttendanceByBatch(batch_id){

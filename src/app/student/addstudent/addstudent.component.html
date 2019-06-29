@@ -1,4 +1,4 @@
-<h1>ADD STUDENT
+<!-- <h1>ADD STUDENT
 </h1>
 
 <form (ngSubmit)="onAdd(f)" #f="ngForm" class="example-form">
@@ -8,7 +8,7 @@
 <div class="form-group">
   <mat-form-field class="example-full-width">
 
-    <input matInput type="text" id="student_name" required placeholder="student name" [(ngModel)]="student_name" name="student_name" #sname="ngModel">
+    <input matInput (keypress)="keyPressText($event)" type="text" id="student_name" required placeholder="student name" [(ngModel)]="student_name" name="student_name" #sname="ngModel">
     <mat-error *ngIf="sname.hasError('required')">its required</mat-error>
 
   </mat-form-field>
@@ -58,77 +58,7 @@
   <br>
 <br>
   <mat-checkbox  *ngFor="let item of arr_subject" (change)="onCheckChange(item)" >{{item.subject_name}}</mat-checkbox>
-  <!-- <mat-form-field> -->
-    <!-- <mat-select placeholder="maths" [(ngModel)]="maths" name="maths" #m1="ngModel" >
-      <mat-option value="yes">
-      yes
-      </mat-option>
-      <mat-option value="no">
-        no
-        </mat-option>
-    </mat-select>
-    <mat-error *ngIf="m1.hasError('required')">its required</mat-error>
-  </mat-form-field>
-  <br>
-
-
-  <mat-form-field>
-    <mat-select placeholder="science" [(ngModel)]="science" name="science" #sc1="ngModel" >
-      <mat-option value="yes">
-      yes
-      </mat-option>
-      <mat-option value="no">
-        no
-        </mat-option>
-    </mat-select>
-    <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
-  </mat-form-field>
-  <br>
-
-
-
-  <mat-form-field>
-    <mat-select placeholder="english" [(ngModel)]="english" name="english" #eng="ngModel">
-      <mat-option value="yes">
-      yes
-      </mat-option>
-      <mat-option value="no">
-        no
-        </mat-option>
-    </mat-select>
-    <mat-error *ngIf="eng.hasError('required')">its required</mat-error>
-  </mat-form-field>
-  <br>
-
-
-
-  <mat-form-field>
-    <mat-select placeholder="physics" [(ngModel)]="physics" name="physics" #ph="ngModel" >
-      <mat-option value="yes">
-      yes
-      </mat-option>
-      <mat-option value="no">
-        no
-        </mat-option>
-    </mat-select>
-    <mat-error *ngIf="ph.hasError('required')">its required</mat-error>
-  </mat-form-field>
-  <br>
-
-
-  <mat-form-field>
-    <mat-select placeholder="biology" [(ngModel)]="biology" name="bilology" #bg="ngModel">
-      <mat-option value="yes">
-      yes
-      </mat-option>
-      <mat-option value="no">
-        no
-        </mat-option>
-    </mat-select>
-    <mat-error *ngIf="bg.hasError('required')">its required</mat-error>
-  </mat-form-field>
-  <br> -->
-
+  
 
   <div class="row">
     <div class="col-sm-6">
@@ -141,4 +71,212 @@
 
   </div>
 
+ -->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+    <h1>ADD FEES details</h1>
+      </div>
+    </div>
+
+<form (ngSubmit)="onAdd(f)" #f="ngForm" class="example-form">
+
+
+  
+    <mat-form-field>
+        <mat-select placeholder="batch" required [(ngModel)]="selectedbatch" name="selectedbatch" #dropdown="ngModel" (selectionChange)="onBatchChange()">
+
+          <mat-option *ngFor="let item of arr_batch" [value]="item">
+            {{item.batch_name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+      </mat-form-field>
+<br>
+
+<mat-form-field>
+  <mat-select placeholder="select a student" [(ngModel)]="selectedstudent" name="selectedstudent" #dropdown="ngModel" (selectionChange)="onFeesChange()">
+    <mat-option *ngFor="let item of fees_arr" [value]="item.student_id">
+      {{item.student_name}}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+</mat-form-field>
+<br>
+
+<div class="container">
+  <div class="form-group">
+    <mat-form-field class="example-full-width">
+
+      <input matInput (keypress)="keyPressText($event)" type="text" id="amount" required placeholder="amount" [(ngModel)]="amount" name="amount" #amt="ngModel">
+      <mat-error *ngIf="amt.hasError('required')">its required</mat-error>
+
+    </mat-form-field>
+<br>
+<mat-form-field>
+  <mat-select placeholder="mode" [(ngModel)]="mode" name="mode" #m1="ngModel" >
+    <mat-option value="cash">
+    cash
+    </mat-option>
+    <mat-option value="cheque">
+      cheque
+      </mat-option>
+  </mat-select>
+  <mat-error *ngIf="m1.hasError('required')">its required</mat-error>
+</mat-form-field>
+<br>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <button class="btn btn-group  btn-primary form-control" [disabled]="!f.valid" type="submit">SAVE</button>
+    </div>
+    <div class="col-sm-6">
+      <button class="btn btn-default btn-danger form-control" (click)="onBack()">CANCEL</button>
+    </div>
+
+
+  </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container">
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-warning">
+                  <h4 class="card-title">ADD STUDENT</h4>
+                  
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="onAdd(f)" #f="ngForm" class="example-form">
+                        <mat-form-field class="example-full-width">
+                      
+                          <input matInput (keypress)="keyPressText($event)" type="text" id="student_name" required placeholder="student name" [(ngModel)]="student_name" name="student_name" #sname="ngModel">
+                          <mat-error *ngIf="sname.hasError('required')">its required</mat-error>
+                      
+                        </mat-form-field>
+                      <br>
+                      
+                      
+                      
+                      
+                      
+                        <mat-form-field class="example-full-width">
+                      
+                          <input matInput type="text" id="student_password" required placeholder="password" [(ngModel)]="student_password" name="student_password" #password="ngModel">
+                          <mat-error *ngIf="password.hasError('required')">its required</mat-error>
+                          <mat-error *ngIf="!p1.hasError('required')">email is invalid</mat-error>
+                        </mat-form-field>
+                      
+                      
+                      <br>
+
+
+
+                            
+                      <mat-form-field class="example-full-width">
+                      
+                        <input matInput type="email" id="parents_email_id" required placeholder="parents email_id" [(ngModel)]="parents_email_id" name="parents_email_id" #p1="ngModel">
+                        <mat-error *ngIf="p1.hasError('required')">its required</mat-error>
+                    
+                      </mat-form-field>
+                    
+                    
+                    <br>
+                      
+                      <mat-form-field>
+                        <input matInput name="joining_Date" [matDatepicker]="picker" placeholder="Choose a date of birth" [(ngModel)]="joining_date" #joiningDate="ngModel">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                      <br>
+                      <mat-form-field>
+                        <input matInput name="date_of_birth" [matDatepicker]="picker1" placeholder="Choose a joining date" [(ngModel)]="date_of_birth" #dob="ngModel">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                      </mat-form-field>
+                      <br>
+                      
+                      <mat-form-field>
+                        <mat-select placeholder="standard" [(ngModel)]="selectedstandard" name="selectedstandard" #dropdown="ngModel" (selectionChange)="onStandardChange()">
+                          <mat-option *ngFor="let item of arr_standard" [value]="item.standard_id">
+                            {{item.standard_no}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="dropdown.hasError('required')">its required</mat-error>
+                      </mat-form-field>
+                      <br>
+                      <br>
+                      
+                      <mat-radio-group class="example-radio-group" [(ngModel)]="selected_batch" name="selected_batch" #sel1="ngModel">
+                        <mat-radio-button class="example-radio-button" *ngFor="let item of arr_batch" [value]="item">{{item.batch_name}}</mat-radio-button>
+                        </mat-radio-group>
+                        <br>
+                      <br>
+                        <mat-checkbox  *ngFor="let item of arr_subject" (change)="onCheckChange(item)" >{{item.subject_name}}</mat-checkbox>
+                        
+                  
+                    
+                    <div class="rows">
+                      <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add Student</button>
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      <button mat-raised-button color="warn" (click)="onBack()">CANCEL</button>
+                      
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  

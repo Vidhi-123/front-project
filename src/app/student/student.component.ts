@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { student } from '../allclasses/student';
 import { StudentService } from '../allservices/student.service';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource,MatPaginator,MatSort } from '@angular/material';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,11 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-  displayedColumns: string[] = ['select','student_name','student_password','date_of_birth','joining_date','batch_name','standard_no','action'];
+  displayedColumns: string[] = ['select','student_name','student_password','parents_email_id','date_of_birth','joining_date','batch_name','standard_no','action'];
     student_arr:student[]=[];
     delarr:student[]=[];
     i:number;
     dataSource = new MatTableDataSource();
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSort) sort:MatSort;
   constructor(private _studentservice:StudentService,private _route:Router) { }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -53,8 +55,9 @@ export class StudentComponent implements OnInit {
         if(this.student_arr.find(x=>x==this.student_arr[this.i])){
           this.student_arr.splice(this.student_arr.indexOf(this.student_arr[this.i]),1)
         }
+        this.dataSource.data=this.student_arr;
       }
-      this.dataSource.data=this.student_arr;
+      
     }
   );
 
@@ -66,6 +69,8 @@ onUpdate(item){
 
 
   ngOnInit() {
+    this.dataSource.paginator=this.paginator;
+    this.dataSource.sort=this.sort;
     this._studentservice.getStudent().subscribe(
       (data:any)=>{
         this.student_arr=data;

@@ -63,6 +63,12 @@ import { AddexamresultComponent } from './examresult/addexamresult/addexamresult
 import { LoginComponent } from './login/login.component';
 import { ForgetpassComponent } from './forgetpass/forgetpass.component';
 import { Home1Component } from './home1/home1.component';
+import { FeesaddComponent } from './fees/feesadd/feesadd.component';
+import { Home2Component } from './home2/home2.component';
+import { TmphomeComponent } from './tmphome/tmphome.component';
+import { HeaderComponent } from './header/header.component';
+import { StumailComponent } from './stumail/stumail.component';
+
 
 
 
@@ -114,6 +120,18 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme)
     ForgetpassComponent,
 
     Home1Component,
+
+    FeesaddComponent,
+
+    Home2Component,
+
+    TmphomeComponent,
+
+    HeaderComponent,
+
+    StumailComponent,
+
+    
 
 
   ],

@@ -13,11 +13,11 @@ export class LoginComponent implements OnInit {
 
 faculty_id:string;
 password:string;
-hide:true;
+hide:boolean=true;
 
 
 onforget(){
-  this._router.navigate(['../menu/forget'])
+  this._router.navigate(['/forget'])
 }
 
 
@@ -30,6 +30,7 @@ onLogin(){
         if(data.length>0){
 
           alert("login successfully");
+          localStorage.setItem('faculty_id',data[0].faculty_id);
           this._router.navigate(['menu']);
 
           // //  this._route.navigate(['/viewprofile']);

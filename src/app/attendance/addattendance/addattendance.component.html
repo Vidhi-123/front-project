@@ -1,23 +1,120 @@
-<button mat-button *ngFor="let item of mergearr" (click)="onBatchChange(item.batch_id)">{{item.batch_name}}</button> -->
-<mat-form-field>
-    <input matInput name="schedule_date" [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="attendance_date" #scheduleDate="ngModel">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+   <h1>ADD ATTENDANCE MANAGEMENT</h1>
+      </div>
+    </div>
+
+
+
+
+
+<button mat-button *ngFor="let item of mergearr" (click)="onBatchChange(item.batch_id)">{{item.batch_name}}</button> 
+<br>
+
 
 <table>
 <th>Student name</th>
 <th>attendance_status</th>
 
+
 <tr *ngFor="let item of arr">
-<td>{{item.student_name}}</td>
-<td> <mat-checkbox color="primary" [checked]=true (change)="onCheckChange(item)" >present</mat-checkbox> </td>
+<td *ngIf="arr.length>0">{{item.student_name}}</td>
+<td *ngIf="arr.length>0"> <mat-checkbox color="primary" [checked]=true (change)="onCheckChange(item)" >present</mat-checkbox> </td>
+
 </tr>
 </table>
 
-<button (click)="onclickupdate()">Update</button>
+<h3 *ngIf="arr.length==0">Already Done</h3>
 
 
 
+
+<div class="row">
+    <div class="col-sm-6">
+      <button class="btn btn-lg btn-primary form-control" (click)="onclickupdate()">SAVE</button>
+    </div>
+    <div class="col-sm-6">
+      <button class="btn btn-lg btn-danger form-control" (click)="onBack()">CANCEL</button>
+    </div>
+  
+  
+  </div>
+
+
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-10">
+            <div class="card">
+              <div class="card-header card-header-warning">
+                <h4 class="card-title">UPDATE ATTENDANCE</h4>
+                
+              </div>
+              <div class="card-body">
+               
+                  <button mat-button *ngFor="let item of mergearr" (click)="onBatchChange(item.batch_id)">{{item.batch_name}}</button> 
+                  <br>
+                  
+                  
+                  <table>
+                  <th>Student name</th>
+                  <th>attendance_status</th>
+                  
+                  
+                  <tr *ngFor="let item of arr">
+                  <td *ngIf="arr.length>0">{{item.student_name}}</td>
+                  <td *ngIf="arr.length>0"> <mat-checkbox color="primary" [checked]=true (change)="onCheckChange(item)" >present</mat-checkbox> </td>
+                  
+                  </tr>
+                  </table>
+                  
+                  <h3 *ngIf="arr.length==0">Already Done</h3>
+                  
+                  <div class="rows">
+                      <button mat-raised-button class="btn" (click)="onclickupdate()">SAVE</button>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" (click)="onBack()">CANCEL</button>
+                    
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 

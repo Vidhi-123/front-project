@@ -22,7 +22,7 @@ export class DailyworkaddComponent implements OnInit {
   selectedFile:File=null;
   selected:batchstandardsubject_class;
   selected1:batchstandardsubject_class;
-  selected2:batchstandardsubject_class;
+  selected2:string;
   daily:dailywork_class[]=[];
   arr:batch_class[]=[];
   arr_b:batch_class[]=[];
@@ -37,7 +37,8 @@ export class DailyworkaddComponent implements OnInit {
     this.selectedFile=<File>value.target.files[0];
   }
 
-  onStandardChange(){
+  onStandardChange()
+  {
     console.log("hi");
     this._ser.getbatchbystandardID(this.selected1).subscribe(
       (data:batch_class[])=>{
@@ -45,7 +46,17 @@ export class DailyworkaddComponent implements OnInit {
         console.log(data);
       }
     );
-    }
+       this._ser.getSubjectByStandard(this.selected1).subscribe(
+      
+      (data:any[])=>{
+        console.log(this.selected1);
+        this.arr2=data;
+        console.log(data);
+      }
+    );
+
+  }
+  
 
   //   this._ser.getSubjectByStandard(this.selected1).subscribe(
       
@@ -100,7 +111,7 @@ export class DailyworkaddComponent implements OnInit {
 
     fd.set('image',this.selectedFile,this.selectedFile.name);
 
-    fd.set( 'fk_subject_id',this.selected2.subject_id.toString());
+    fd.set( 'fk_subject_id',this.selected2.toString());
 
     console.log(fd);
     this._ser.dailywork(fd).subscribe(
@@ -108,14 +119,15 @@ export class DailyworkaddComponent implements OnInit {
       {
 
         console.log(data);
+        this._route.navigate(['../menu/alldaily']);
 
 
       }
       
     );
-  
+    
   }
-  this._route.navigate(['../menu/alldaily']);
+  
     }
 
 
@@ -123,32 +135,14 @@ export class DailyworkaddComponent implements OnInit {
   constructor(private _ser:DailyworkService,private _ser1:BatchServiceService,public _actroute:ActivatedRoute,public _route:Router) { }
 
   ngOnInit() {
-    // this._ser.getAllBatch().subscribe(
-    //   (data:any)=>{
-    //     this.arr=data
-    //   }
-    // )
+   
     this._ser.getAllStandard().subscribe(
-      (data:any)=>{
+      (data:any)=>
+      {
         this.arr1=data
       }
     )
-    this._ser.getAllSubject().subscribe(
-      (data:any)=>{
-        this.arr2=data
-      }
-    )
-    // this.batch_id=this._actroute.snapshot.params['batch_id'];
-    // this._ser1.getBatchByStandard().subscribe(
-    //   (data:batchstandard_class[])=>{
-    //     this.arr3=data;
-    //     console.log(this.arr3);
-        /*this.batch_name=data[0].batch_name;
-        console.log(this.batch_name);
-        this.fk_standard_id=data[0].fk_standard_id;*/
-
-    //   }
-    // );
+   
   }
 
   }

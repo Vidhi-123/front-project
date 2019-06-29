@@ -1,10 +1,10 @@
-<div class="container">
-    <div class="row">
-      <div class="col-md-12">
+<!-- <div class="container"> -->
+    <!-- <div class="row">
+      <div class="col-md-12"> -->
       <!-- <b style="font-size: 50px;margin-left: 520px;font-family: Algerian;">
-        BATCH MANAGEMENT </b> --><h1 align="center">ATTENDANCE MANAGEMENT</h1>
+        BATCH MANAGEMENT </b> h1 align="center">ATTENDANCE MANAGEMENT</h1>
       </div>
-    </div>
+    </div> -->
 <!-- <mat-form-field>
     <mat-select placeholder="standard" [(ngModel)]="selected_batch" name="selected_batch" #dropdown="ngModel" (selectionChange)="onBatchChange()">
       <mat-option *ngFor="let item of mergearr" [value]="item.batch_id">
@@ -20,20 +20,48 @@
     <mat-icon >add</mat-icon>
     ADD NEW ATTENDANCE
     </button> -->
-    <div class="row">
+    <!-- <div class="row">
 
               
+        <div class="col-md-4">
+            <button mat-raised-button color="primary" (click)="onAdd()" class="btn">
+              <mat-icon>add</mat-icon> Add New Attendance
+            </button>
+            &nbsp;&nbsp;
+            
+          </div> -->
 
+    <!-- <div class="card size">
+    <div class="card-header card-header-primary">
+      <h2 class="card-title ">Batch Management</h2> -->
+      <!-- <p class="card-category"> click on header to sort the data</p> -->
+    <!-- </div>
+    <div class="row">
+      <div class="col-md-8">
+        <mat-form-field class="example-form">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Batch"
+            class="example-full-width">
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <button mat-raised-button color="primary" (click)="onAdd()" class="btn">
+          <mat-icon>add</mat-icon> Add New Batch
+        </button>
+        &nbsp;&nbsp;
+        
+      </div>
+    </div>
+   
+ -->
 
-
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
             <button mat-button  (click)="onAdd()" type="button" class="btn btn-primary btn-lg" style="margin-left:800px;">
                 <mat-icon >add</mat-icon>
                 ADD NEW ATTENDANCE
                 </button>
-              </div>
+              </div> -->
           
-            </div>
+            <!-- </div>
             <br>
         <div class="row">
             <div class="col-md-12">
@@ -53,4 +81,75 @@
 <td>{{item.student_name}}</td>
 <td>{{item.attendance_status}}</td>
 </tr>
-</table>
+</table> -->
+
+
+<div class="container">
+    <div class="card size">
+      <div class="card-header card-header-warning">
+        <h2 class="card-title">Attendance Management</h2>
+        <!-- <p class="card-category"> click on header to sort the data</p> -->
+      </div>
+      <div class="row">
+        
+        <div class="col">
+          <button mat-raised-button color="primary" (click)="onAdd()" class="btn">
+            <mat-icon>add</mat-icon> Add New Attendance
+          </button>
+          <button mat-raised-button color="primary" (click)="onAttendance()" class="btn">
+            <mat-icon>add</mat-icon> Student mail
+          </button>
+          &nbsp;&nbsp;
+          
+        </div>
+      </div>
+     
+  
+            <div class="row">
+                <div class="col-sm-12">
+                    <button mat-button *ngFor="let item of mergearr" (click)="onBatchChange(item.batch_id)">{{item.batch_name}}</button>
+                 
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <tbody>
+               
+          
+          
+          
+          
+            
+            <ng-container matColumnDef="attendance_date">
+              <th mat-header-cell *matHeaderCellDef > Attendance Date </th>
+              <td mat-cell *matCellDef="let element" > {{element.attendance_date | date:"dd/MM/yyyy"}} </td>
+            </ng-container>
+          
+            
+            <ng-container matColumnDef="student_name">
+              <th mat-header-cell *matHeaderCellDef> Student Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.student_name}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="attendance_status">
+                <th mat-header-cell *matHeaderCellDef> Attendance Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.attendance_status}} </td>
+              </ng-container>
+          
+            
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)" ></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- <div class="row"> -->
+        <!-- <div class="col-md-4">
+          <button mat-raised-button color="warn" (click)="onDelete()">
+            <mat-icon>delete</mat-icon> Delete All
+          </button>
+        </div> -->
+        <!-- <div class="col-md-8">
+          <mat-paginator [pageSizeOptions]="[5,10]"></mat-paginator>
+        </div>
+      </div> -->
+    </div>
+  </div>

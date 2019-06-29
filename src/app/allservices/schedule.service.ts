@@ -2,16 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { schedule } from '../allclasses/schedule';
 import { batch_std_sub_fac_schedule } from '../allclasses/batch_std_sub_fac_schedule';
+import { url } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScheduleService {
-  schedule:string="http://localhost:3000/schedule"
-  schedule1:string="http://localhost:3000/schedule1/"
+  schedule:string=url.endPoint+"schedule"
+  schedule1:string=url.endPoint+"schedule1/"
 
   constructor(private _http:HttpClient) { }
   getAllScheduleBatchFacultystdsubject(){
+   
     return this._http.get(this.schedule);
   }
   getAllDate(){

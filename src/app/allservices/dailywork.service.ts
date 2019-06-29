@@ -2,20 +2,21 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { batchstandardsubjectdaily_class } from '../allclasses/batchstandardsubjectdaily_class';
 import { dailywork_class } from '../allclasses/dailywork_class';
+import { url } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DailyworkService {
-  dailyworkadd:string='http://localhost:3000/dailyworkadd/';
-  batch:string="http://localhost:3000/batch/"
-  standard:string="http://localhost:3000/standard/"
-  subject:string= "http://localhost:3000/subject/"
-  alldaily:string="http://localhost:3000/alldaily/";
-  updatedailywork:string="http://localhost:3000/dailyworkadd/"
-  dailyAllDel:string="http://localhost:3000/dailyworkdel/";
-  updateimage:string="http://localhost:3000/updatedailyImage/";
-  dailysubject:string="http://localhost:3000/dailysubject/";
+  dailyworkadd:string=url.endPoint+'dailyworkadd/';
+  batch:string=url.endPoint+"batch/"
+  standard:string=url.endPoint+"standard/"
+  subject:string= url.endPoint+"subject/"
+  alldaily:string=url.endPoint+"alldaily/";
+  updatedailywork:string=url.endPoint+"dailyworkadd/"
+  dailyAllDel:string=url.endPoint+"dailyworkdel/";
+  updateimage:string=url.endPoint+"updatedailyImage/";
+  dailysubject:string=url.endPoint+"dailysubject/";
 
   constructor(private _http:HttpClient) { }
   dailywork(item:FormData){
